@@ -16,7 +16,7 @@ SimpleVQA (MAP)
 
 MMSearch (MMLab)
 
-MMSearch-Plus
+MMSearch-Plus (HKU, ICLR 2026)
 
 MM-BrowseComp (Seed)
 
