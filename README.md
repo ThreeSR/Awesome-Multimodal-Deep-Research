@@ -20,7 +20,7 @@ MMSearch-Plus
 
 MM-BrowseComp (Seed)
 
-LiveVQA (UW)
+LiveVQA (HUST, UW)
 
 
 
