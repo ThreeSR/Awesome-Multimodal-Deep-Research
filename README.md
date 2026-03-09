@@ -30,6 +30,7 @@ WebWatcher (Alibaba; Base: Qwen2.5-VL)
 
 Vision-DeepResearch (MMLab; Base: Qwen3-VL)
 
+MM-DeepResearch: A Simple and Effective Multimodal Agentic Search Baseline [Paper](https://arxiv.org/pdf/2603.01050)
 
 ## Language-based Deep Research
 
