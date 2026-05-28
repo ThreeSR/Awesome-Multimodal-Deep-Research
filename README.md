@@ -122,9 +122,16 @@ Multimodal large language models (MLLMs), equipped with increasingly advanced pl
 
 </details>
 
-#### xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations
+#### [xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations](https://arxiv.org/abs/2506.13651)
+2025-06 · [PDF](https://arxiv.org/pdf/2506.13651)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A profession-aligned, continuously-updated agent evaluation suite tied to real economic value, with initial Recruitment and Marketing benchmarks defined by industry professionals.
+
+<details><summary>Abstract</summary>
+
+We introduce xbench, a dynamic, profession-aligned evaluation suite designed to bridge the gap between AI agent capabilities and real-world productivity. While existing benchmarks often focus on isolated technical skills, they may not accurately reflect the economic value agents deliver in professional settings. To address this, xbench targets commercially significant domains with evaluation tasks defined by industry professionals. Our framework creates metrics that strongly correlate with productivity value, enables prediction of Technology-Market Fit (TMF), and facilitates tracking of product capabilities over time. As our initial implementations, we present two benchmarks: Recruitment and Marketing. For Recruitment, we collect 50 tasks from real-world headhunting business scenarios to evaluate agents' abilities in company mapping, information retrieval, and talent sourcing. For Marketing, we assess agents' ability to match influencers with advertiser needs, evaluating their performance across 50 advertiser requirements using a curated pool of 836 candidate influencers. We present initial evaluation results for leading contemporary agents, establishing a baseline for these professional domains. Our continuously updated evalsets and evaluations are available at this https URL.
+
+</details>
 
 #### DeepSearch QA
 
@@ -139,18 +146,38 @@ Multimodal large language models (MLLMs), equipped with increasingly advanced pl
 
 > **TL;DR.** _pending._
 
-#### GAIA
-`Meta`
+#### [GAIA: a benchmark for General AI Assistants](https://arxiv.org/abs/2311.12983)
+`Meta` · 2023-11 · [PDF](https://arxiv.org/pdf/2311.12983)
 
-> **TL;DR.** _pending._
+> **TL;DR.** 466 real-world questions needing reasoning, multimodality, web browsing, and tool use; conceptually simple for humans (92%) but hard for AI (15% for GPT-4 with plugins).
 
-#### DeepResearch Bench
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+We introduce GAIA, a benchmark for General AI Assistants that, if solved, would represent a milestone in AI research. GAIA proposes real-world questions that require a set of fundamental abilities such as reasoning, multi-modality handling, web browsing, and generally tool-use proficiency. GAIA questions are conceptually simple for humans yet challenging for most advanced AIs: we show that human respondents obtain 92% vs. 15% for GPT-4 equipped with plugins. This notable performance disparity contrasts with the recent trend of LLMs outperforming humans on tasks requiring professional skills in e.g. law or chemistry. GAIA's philosophy departs from the current trend in AI benchmarks suggesting to target tasks that are ever more difficult for humans. We posit that the advent of Artificial General Intelligence (AGI) hinges on a system's capability to exhibit similar robustness as the average human does on such questions. Using GAIA's methodology, we devise 466 questions and their answer. We release our questions while retaining answers to 300 of them to power a leader-board available at this https URL.
 
-#### WebWalkerQA
+</details>
 
-> **TL;DR.** _pending._
+#### [DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents](https://arxiv.org/abs/2506.11763)
+2025-06 · [PDF](https://arxiv.org/pdf/2506.11763)
+
+> **TL;DR.** 100 PhD-level research tasks across 22 fields for evaluating deep-research agents on report quality and citation accuracy, with two human-aligned evaluation methodologies.
+
+<details><summary>Abstract</summary>
+
+Deep Research Agents are a prominent category of LLM-based agents. By autonomously orchestrating multistep web exploration, targeted retrieval, and higher-order synthesis, they transform vast amounts of online information into analyst-grade, citation-rich reports--compressing hours of manual desk research into minutes. However, a comprehensive benchmark for systematically evaluating the capabilities of these agents remains absent. To bridge this gap, we present DeepResearch Bench, a benchmark consisting of 100 PhD-level research tasks, each meticulously crafted by domain experts across 22 distinct fields. Evaluating DRAs is inherently complex and labor-intensive. We therefore propose two novel methodologies that achieve strong alignment with human judgment. The first is a reference-based method with adaptive criteria to assess the quality of generated research reports. The other framework is introduced to evaluate DRA's information retrieval and collection capabilities by assessing its effective citation count and overall citation accuracy. We have open-sourced DeepResearch Bench and key components of these frameworks at this https URL to accelerate the development of practical LLM-based agents.
+
+</details>
+
+#### [WebWalker: Benchmarking LLMs in Web Traversal](https://arxiv.org/abs/2501.07572)
+2025-01 · [PDF](https://arxiv.org/pdf/2501.07572)
+
+> **TL;DR.** Introduces WebWalkerQA, a benchmark for traversing a website's subpages to systematically extract deep, multi-layered info, plus WebWalker, a multi-agent explore-critic navigation framework.
+
+<details><summary>Abstract</summary>
+
+Retrieval-augmented generation (RAG) demonstrates remarkable performance across tasks in open-domain question-answering. However, traditional search engines may retrieve shallow content, limiting the ability of LLMs to handle complex, multi-layered information. To address it, we introduce WebWalkerQA, a benchmark designed to assess the ability of LLMs to perform web traversal. It evaluates the capacity of LLMs to traverse a website's subpages to extract high-quality data systematically. We propose WebWalker, which is a multi-agent framework that mimics human-like web navigation through an explore-critic paradigm. Extensive experimental results show that WebWalkerQA is challenging and demonstrates the effectiveness of RAG combined with WebWalker, through the horizontal and vertical integration in real-world scenarios.
+
+</details>
 
 ### Benchmarks: (Multi-)Image + Text
 
@@ -181,20 +208,32 @@ The advent of Large Language Models (LLMs) has paved the way for AI search engin
 
 </details>
 
-#### MMSearch-Plus (MSP)
-`HKU` · `ICLR 2026` · Multi-Image Input
+#### [MMSearch-Plus: Benchmarking Provenance-Aware Search for Multimodal Browsing Agents (MSP)](https://arxiv.org/abs/2508.21475)
+`HKU` · `ICLR 2026` · Multi-Image Input · 2025-08 · [PDF](https://arxiv.org/pdf/2508.21475)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A 311-task benchmark forcing genuine multimodal reasoning by propagating fine-grained visual cues through iterative image-text retrieval; adds a set-of-mark agent module (top system reaches 36%).
 
-#### HLE (Humanity's Last Exam)
-`Nature`
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+Existing multimodal browsing benchmarks often fail to require genuine multimodal reasoning, as many tasks can be solved with text-only heuristics without vision-in-the-loop verification. We introduce MMSearch-Plus, a 311-task benchmark that enforces multimodal understanding by requiring extraction and propagation of fine-grained visual cues through iterative image-text retrieval and cross-validation under retrieval noise. Our curation procedure seeds questions whose answers require extrapolating from spatial cues and temporal traces to out-of-image facts such as events, dates, and venues. Beyond the dataset, we provide a model-agnostic agent framework with standard browsing tools and a set-of-mark (SoM) module, which lets the agent place marks, crop subregions, and launch targeted image/text searches. SoM enables provenance-aware zoom-and-retrieve and improves robustness in multi-step reasoning. We evaluated closed- and open-source MLLMs in this framework. The strongest system achieves an end-to-end accuracy of 36.0%, and integrating SoM produces consistent gains in multiple settings, with improvements up to +3.9 points. From failure analysis, we observe recurring errors in locating relevant webpages and distinguishing between visually similar events. These results underscore the challenges of real-world multimodal search and establish MMSearch-Plus as a rigorous benchmark for advancing agentic MLLMs.
 
-#### RealX-Bench
-`ICLR 2026` · `from DeepEyesV2`
+</details>
 
-> **TL;DR.** _pending._
+#### [Humanity's Last Exam (HLE)](https://arxiv.org/abs/2501.14249)
+`Nature` · 2025-01 · [PDF](https://arxiv.org/pdf/2501.14249)
+
+> **TL;DR.** A 2,500-question, multi-modal, expert-written benchmark at the frontier of human knowledge, with verifiable answers that can't be found by quick web retrieval; SOTA LLMs score low.
+
+<details><summary>Abstract</summary>
+
+Benchmarks are important tools for tracking the rapid advancements in large language model (LLM) capabilities. However, benchmarks are not keeping pace in difficulty: LLMs now achieve over 90% accuracy on popular benchmarks like MMLU, limiting informed measurement of state-of-the-art LLM capabilities. In response, we introduce Humanity's Last Exam (HLE), a multi-modal benchmark at the frontier of human knowledge, designed to be the final closed-ended academic benchmark of its kind with broad subject coverage. HLE consists of 2,500 questions across dozens of subjects, including mathematics, humanities, and the natural sciences. HLE is developed globally by subject-matter experts and consists of multiple-choice and short-answer questions suitable for automated grading. Each question has a known solution that is unambiguous and easily verifiable, but cannot be quickly answered via internet retrieval. State-of-the-art LLMs demonstrate low accuracy and calibration on HLE, highlighting a significant gap between current LLM capabilities and the expert human frontier on closed-ended academic questions. To inform research and policymaking upon a clear understanding of model capabilities, we publicly release HLE at this https URL.
+
+</details>
+
+#### [RealX-Bench](https://arxiv.org/abs/2511.05271)
+`ICLR 2026` · `from DeepEyesV2` · 2025-11 · [PDF](https://arxiv.org/pdf/2511.05271)
+
+> **TL;DR.** A benchmark for real-world multimodal reasoning that jointly requires perception, search, and reasoning; introduced with DeepEyesV2 (see Models & Methods).
 
 #### VisBrowse-Bench: Benchmarking Visual-Native Search for Multimodal Browsing Agents
 `Ant`
@@ -242,10 +281,16 @@ Visual perception connects high-level semantic understanding to pixel-level perc
 
 > **TL;DR.** _Introduced by WebWatcher (see Models & Methods); confirm whether it has a standalone paper._
 
-#### MM-BrowseComp
-`Seed`
+#### [MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents](https://arxiv.org/abs/2508.13186)
+`Seed` · 2025-08 · [PDF](https://arxiv.org/pdf/2508.13186)
 
-> **TL;DR.** _pending._
+> **TL;DR.** 224 hand-crafted multimodal browsing questions where key evidence is embedded in webpage images/videos, defeating text-only methods; even OpenAI o3 with tools reaches only 29%.
+
+<details><summary>Abstract</summary>
+
+AI agents with advanced reasoning and tool use capabilities have demonstrated impressive performance in web browsing for deep search. While existing benchmarks such as BrowseComp evaluate these browsing abilities, they primarily focus on textual information, overlooking the prevalence of multimodal content. To bridge this gap, we introduce MM-BrowseComp, a novel benchmark comprising 224 challenging, hand-crafted questions specifically designed to assess agents' multimodal retrieval and reasoning capabilities. These questions often incorporate images in prompts, and crucial information encountered during the search and reasoning process may also be embedded within images or videos on webpages. Consequently, methods relying solely on text prove insufficient for our benchmark. Additionally, we provide a verified checklist for each question, enabling fine-grained analysis of multimodal dependencies and reasoning paths. Our comprehensive evaluation of state-of-the-art models on MM-BrowseComp reveals that even top models like OpenAI o3 with tools achieve only 29.02% accuracy, highlighting the suboptimal multimodal capabilities and lack of native multimodal reasoning in current models.
+
+</details>
 
 ### Benchmarks: Video + Text
 
@@ -387,20 +432,38 @@ Robust deployment of large multimodal models (LMMs) in real-world scenarios requ
 
 </details>
 
-#### Deep-MM-Search-R1
-`arXiv 2510`
+#### [DeepMMSearch-R1: Empowering Multimodal LLMs in Multimodal Web Search](https://arxiv.org/abs/2510.12801)
+2025-10 · [PDF](https://arxiv.org/pdf/2510.12801)
 
-> **TL;DR.** _pending._
+> **TL;DR.** An MLLM doing on-demand multi-turn web search that crops the input image to drive image search and iteratively rewrites text queries with self-correction; trained via SFT cold-start + online RL on DeepMMSearchVQA.
 
-#### DeepEyesV2: Toward Agentic Multimodal Model
-`ICLR 2026 Poster` · `HF Daily Paper` · [Code](https://github.com/Visual-Agent)
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+Multimodal Large Language Models (MLLMs) in real-world applications require access to external knowledge sources and must remain responsive to the dynamic and ever-changing real-world information in order to address information-seeking and knowledge-intensive user queries. Existing approaches, such as retrieval augmented generation (RAG) methods, search agents, and search equipped MLLMs, often suffer from rigid pipelines, excessive search calls, and poorly constructed search queries, which result in inefficiencies and suboptimal outcomes. To address these limitations, we present DeepMMSearch-R1, the first multimodal LLM capable of performing on-demand, multi-turn web searches and dynamically crafting queries for both image and text search tools. Specifically, DeepMMSearch-R1 can initiate web searches based on relevant crops of the input image making the image search more effective, and can iteratively adapt text search queries based on retrieved information, thereby enabling self-reflection and self-correction. Our approach relies on a two-stage training pipeline: a cold start supervised finetuning phase followed by an online reinforcement learning optimization. For training, we introduce DeepMMSearchVQA, a novel multimodal VQA dataset created through an automated pipeline intermixed with real-world information from web search tools. This dataset contains diverse, multi-hop queries that integrate textual and visual information, teaching the model when to search, what to search for, which search tool to use and how to reason over the retrieved information. We conduct extensive experiments across a range of knowledge-intensive benchmarks to demonstrate the superiority of our approach. Finally, we analyze the results and provide insights that are valuable for advancing multimodal web-search.
 
-#### Tongyi DR
-`Alibaba` · Base: `Qwen2.5`
+</details>
 
-> **TL;DR.** _pending._
+#### [DeepEyesV2: Toward Agentic Multimodal Model](https://arxiv.org/abs/2511.05271)
+`ICLR 2026 Poster` · `HF Daily Paper` · 2025-11 · [PDF](https://arxiv.org/pdf/2511.05271) · [Code](https://github.com/Visual-Agent)
+
+> **TL;DR.** An agentic multimodal model trained with a cold-start + RL two-stage pipeline for robust tool use (code execution, web search, image ops); introduces RealX-Bench for real-world perception + search + reasoning.
+
+<details><summary>Abstract</summary>
+
+Agentic multimodal models should not only comprehend text and images, but also actively invoke external tools, such as code execution environments and web search, and integrate these operations into reasoning. In this work, we introduce DeepEyesV2 and explore how to build an agentic multimodal model from the perspectives of data construction, training methods, and model evaluation. We observe that direct reinforcement learning alone fails to induce robust tool-use behavior. This phenomenon motivates a two-stage training pipeline: a cold-start stage to establish tool-use patterns, and reinforcement learning stage to further refine tool invocation. We curate a diverse, moderately challenging training dataset, specifically including examples where tool use is beneficial. We further introduce RealX-Bench, a comprehensive benchmark designed to evaluate real-world multimodal reasoning, which inherently requires the integration of multiple capabilities, including perception, search, and reasoning. We evaluate DeepEyesV2 on RealX-Bench and other representative benchmarks, demonstrating its effectiveness across real-world understanding, mathematical reasoning, and search-intensive tasks. Moreover, DeepEyesV2 exhibits task-adaptive tool invocation, tending to use image operations for perception tasks and numerical computations for reasoning tasks. Reinforcement learning further enables complex tool combinations and allows model to selectively invoke tools based on context. We hope our study can provide guidance for community in developing agentic multimodal models.
+
+</details>
+
+#### [Tongyi DeepResearch Technical Report](https://arxiv.org/abs/2510.24701)
+`Alibaba` · 2025-10 · [PDF](https://arxiv.org/pdf/2510.24701)
+
+> **TL;DR.** An agentic 30.5B-A3B (3.3B active) MoE LLM for long-horizon deep research, trained via agentic mid- and post-training on fully-synthetic data; SOTA on HLE, BrowseComp/-ZH, WebWalkerQA, and xbench.
+
+<details><summary>Abstract</summary>
+
+We present Tongyi DeepResearch, an agentic large language model, which is specifically designed for long-horizon, deep information-seeking research tasks. To incentivize autonomous deep research agency, Tongyi DeepResearch is developed through an end-to-end training framework that combines agentic mid-training and agentic post-training, enabling scalable reasoning and information seeking across complex tasks. We design a highly scalable data synthesis pipeline that is fully automatic, without relying on costly human annotation, and empowers all training stages. By constructing customized environments for each stage, our system enables stable and consistent interactions throughout. Tongyi DeepResearch, featuring 30.5 billion total parameters, with only 3.3 billion activated per token, achieves state-of-the-art performance across a range of agentic deep research benchmarks, including Humanity's Last Exam, BrowseComp, BrowseComp-ZH, WebWalkerQA, xbench-DeepSearch, FRAMES and xbench-DeepSearch-2510. We open-source the model, framework, and complete solutions to empower the community.
+
+</details>
 
 #### OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents
 
@@ -453,10 +516,16 @@ Multimodal deep search agents have shown great potential in solving complex task
 
 > **TL;DR.** _pending._
 
-#### OmniSearch: Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent
-`ICLR 2025`
+#### [OmniSearch: Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent](https://arxiv.org/abs/2411.02937)
+`ICLR 2025` · 2024-11 · [PDF](https://arxiv.org/pdf/2411.02937)
 
-> **TL;DR.** A model-agnostic agentic search framework for multimodal RAG with a dynamic VQA dataset and self-adaptive planning.
+> **TL;DR.** Introduces the Dyn-VQA dataset (rapidly-changing, multimodal, multi-hop questions) and OmniSearch, a self-adaptive planning agent that decomposes multimodal questions into retrieval sub-question chains.
+
+<details><summary>Abstract</summary>
+
+Multimodal Retrieval Augmented Generation (mRAG) plays an important role in mitigating the "hallucination" issue inherent in multimodal large language models (MLLMs). Although promising, existing heuristic mRAGs typically predefined fixed retrieval processes, which causes two issues: (1) Non-adaptive Retrieval Queries. (2) Overloaded Retrieval Queries. However, these flaws cannot be adequately reflected by current knowledge-seeking visual question answering (VQA) datasets, since the most required knowledge can be readily obtained with a standard two-step retrieval. To bridge the dataset gap, we first construct Dyn-VQA dataset, consisting of three types of "dynamic" questions, which require complex knowledge retrieval strategies variable in query, tool, and time: (1) Questions with rapidly changing answers. (2) Questions requiring multi-modal knowledge. (3) Multi-hop questions. Experiments on Dyn-VQA reveal that existing heuristic mRAGs struggle to provide sufficient and precisely relevant knowledge for dynamic questions due to their rigid retrieval processes. Hence, we further propose the first self-adaptive planning agent for multimodal retrieval, OmniSearch. The underlying idea is to emulate the human behavior in question solution which dynamically decomposes complex multimodal questions into sub-question chains with retrieval action. Extensive experiments prove the effectiveness of our OmniSearch, also provide direction for advancing mRAG. The code and dataset will be open-sourced at this https URL.
+
+</details>
 
 #### HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents
 `IMEB Benchmark`
@@ -534,6 +603,17 @@ In real-world video question answering scenarios, videos often provide only loca
 > **TL;DR.** _Proprietary product._
 
 ### Open Data Synthesis for Deep Research
+
+#### [Open Data Synthesis For Deep Research](https://arxiv.org/abs/2509.00375)
+2025-08 · [PDF](https://arxiv.org/pdf/2509.00375)
+
+> **TL;DR.** Formalizes deep research as Hierarchical Constraint Satisfaction Problems and presents InfoSeek (a dual-agent Research-Tree synthesis framework, 50K+ tasks); 3B models trained on it beat 32B baselines on BrowseComp-Plus. (NB: this InfoSeek is a data-synthesis framework, distinct from the visual-VQA InfoSeek under Training Data.)
+
+<details><summary>Abstract</summary>
+
+Large language models (LLMs) are increasingly expected to go beyond simple factual queries toward Deep Research-tasks that require decomposing questions into sub-problems, coordinating multi-step reasoning, and synthesizing evidence from diverse sources. We formalize Deep Research tasks with verifiable answers as Hierarchical Constraint Satisfaction Problems (HCSPs), which are fundamentally different from single-constraint, multi-hop, or flat CSP formulations. However, existing benchmarks (e.g., Natural Questions, HotpotQA) fail to capture this complexity, while recent synthetic datasets often introduce shortcut reasoning, knowledge leakage, or lack sufficient structural depth. To address this gap, we introduce InfoSeek, a scalable framework for synthesizing complex Deep Research tasks. InfoSeek uses a dual-agent system to recursively build a Research Tree from large-scale webpages, blurring intermediate nodes into valid sub-problems, and converting these trees into natural language questions that require traversing the full hierarchy. It also enables rapid scaling, yielding over 50K training examples, a curated test set, and reasoning trajectories generated via reject sampling. Experiments show that models trained on InfoSeek consistently outperform strong baselines. On a challenging benchmark BrowseComp-Plus, 3B LLMs optimized with InfoSeek surpass much larger 32B models and lightweight commercial APIs (e.g., Gemini2.5-Flash), while achieving performance comparable to stronger APIs (e.g., Gemini2.5-Pro). By preserving meta-information such as intermediate steps and retrieval labels, InfoSeek further supports advanced optimization strategies, including compound reward design and trajectory-level exploration. We provide our codes and datasets in this repository.
+
+</details>
 
 #### DeepSearch: Overcome the Bottleneck of Reinforcement Learning with Verifiable Rewards via Monte Carlo Tree Search
 
