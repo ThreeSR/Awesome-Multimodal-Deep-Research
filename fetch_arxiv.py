@@ -14,6 +14,7 @@ Design notes:
 """
 
 import argparse
+import html
 import re
 import sys
 import time
@@ -235,6 +236,7 @@ def strip_tags(s):
 
 
 def clean_text(s):
+    s = html.unescape(s)
     s = s.replace("\n", " ").replace("\r", " ")
     s = re.sub(r"\s+", " ", s).strip()
     return s
