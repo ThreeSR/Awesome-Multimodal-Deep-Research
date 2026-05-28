@@ -408,6 +408,9 @@ def main():
     p.add_argument("--base", help="base model, e.g. 'Qwen2.5-VL'")
     p.add_argument("--code", help="code repo URL")
     p.add_argument("--project", help="project page URL")
+    p.add_argument("--html-only", action="store_true",
+                   help="skip the Atom API and parse the HTML abstract page directly "
+                        "(use with --id/--url when the API is throttled)")
     p.add_argument("--dry-run", action="store_true", help="print entry, do not write")
     p.add_argument("--force", action="store_true", help="insert even if id already in README")
     args = p.parse_args()
@@ -425,7 +428,7 @@ def main():
             )
             return 0
 
-        meta = fetch_meta(arxiv_id)
+        meta = fetch_meta_html(arxiv_id) if args.html_only else fetch_meta(arxiv_id)
         entry = render_entry(
             meta, tldr=args.tldr, affiliation=args.affiliation, venue=args.venue,
             base=args.base, code=args.code, project=args.project,

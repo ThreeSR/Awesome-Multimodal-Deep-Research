@@ -305,10 +305,16 @@ AI-assisted research is crossing a threshold: fully automated systems can now ge
 
 ### Methods: Text
 
-#### Search-R1
-`COLM 2025 Oral`
+#### [Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516)
+`COLM 2025 Oral` · 2025-03 · [PDF](https://arxiv.org/pdf/2503.09516)
 
-> **TL;DR.** _pending._
+> **TL;DR.** An RL framework where an LLM learns to autonomously issue multi-turn search queries during step-by-step reasoning (with retrieved-token masking and outcome-based rewards), improving QA by 20-41% over RAG baselines.
+
+<details><summary>Abstract</summary>
+
+Efficiently acquiring external knowledge and up-to-date information is essential for effective reasoning and text generation in large language models (LLMs). Prompting advanced LLMs with reasoning capabilities to use search engines during inference is often suboptimal, as the LLM might not fully possess the capability on how to interact optimally with the search engine. This paper introduces Search-R1, an extension of reinforcement learning (RL) for reasoning frameworks where the LLM learns to autonomously generate (multiple) search queries during step-by-step reasoning with real-time retrieval. Search-R1 optimizes LLM reasoning trajectories with multi-turn search interactions, leveraging retrieved token masking for stable RL training and a simple outcome-based reward function. Experiments on seven question-answering datasets show that Search-R1 improves performance by 41% (Qwen2.5-7B) and 20% (Qwen2.5-3B) over various RAG baselines under the same setting. This paper further provides empirical insights into RL optimization methods, LLM choices, and response length dynamics in retrieval-augmented reasoning. The code and model checkpoints are available at this https URL.
+
+</details>
 
 #### Dr. Tulu
 
@@ -319,21 +325,49 @@ AI-assisted research is crossing a threshold: fully automated systems can now ge
 
 > **TL;DR.** Data-synthesis pipeline; SFT + distillation only, with GPT-OSS as the teacher.
 
-#### WebShaper
+#### [WebShaper: Agentically Data Synthesizing via Information-Seeking Formalization](https://arxiv.org/abs/2507.15061)
+2025-07 · [PDF](https://arxiv.org/pdf/2507.15061)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A formalization-driven information-seeking data synthesis framework that uses set-theoretic Knowledge Projections to control reasoning structure; SOTA among open IS agents on GAIA and WebWalkerQA.
 
-#### WebSailor
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+The advent of Large Language Model (LLM)-powered agents has revolutionized artificial intelligence by enabling solutions to complex, open-ended tasks through web-based information-seeking (IS) capabilities. The scarcity of high-quality training data has limited the development of IS agents. Existing approaches typically adopt an information-driven paradigm that first collects web data and then generates questions based on the retrieval. However, this may lead to inconsistency between information structure and reasoning structure, question and answer. To mitigate, we propose a formalization-driven IS data synthesis framework WebShaper to construct a dataset. WebShaper systematically formalizes IS tasks through set theory. Central to the formalization is the concept of Knowledge Projections (KP), which enables precise control over reasoning structure by KP operation compositions. During synthesis, we begin by creating seed tasks, then use a multi-step expansion process. At each step, an agentic Expander expands the current formal question more complex with retrieval and validation tools based on our formalization. We train our model on the synthesized dataset. Experiment results demonstrate that WebShaper achieves state-of-the-art performance among open-sourced IS agents on GAIA and WebWalkerQA benchmarks.
 
-#### WebDancer
+</details>
 
-> **TL;DR.** _pending._
+#### [WebSailor: Navigating Super-human Reasoning for Web Agent](https://arxiv.org/abs/2507.02592)
+2025-07 · [PDF](https://arxiv.org/pdf/2507.02592)
 
-#### WebThinker
+> **TL;DR.** A post-training pipeline (high-uncertainty task synthesis, RFT cold start, and DUPO agentic RL) that gives open-source web agents the uncertainty-reduction reasoning of proprietary deep-research systems, closing the gap on BrowseComp.
 
-> **TL;DR.** _pending._
+<details><summary>Abstract</summary>
+
+Transcending human cognitive limitations represents a critical frontier in LLM training. Proprietary agentic systems like DeepResearch have demonstrated superhuman capabilities on extremely complex information-seeking benchmarks such as BrowseComp, a feat previously unattainable. We posit that their success hinges on a sophisticated reasoning pattern absent in open-source models: the ability to systematically reduce extreme uncertainty when navigating vast information landscapes. Based on this insight, we introduce WebSailor, a complete post-training methodology designed to instill this crucial capability. Our approach involves generating novel, high-uncertainty tasks through structured sampling and information obfuscation, RFT cold start, and an efficient agentic RL training algorithm, Duplicating Sampling Policy Optimization (DUPO). With this integrated pipeline, WebSailor significantly outperforms all opensource agents in complex information-seeking tasks, matching proprietary agents' performance and closing the capability gap.
+
+</details>
+
+#### [WebDancer: Towards Autonomous Information Seeking Agency](https://arxiv.org/abs/2505.22648)
+2025-05 · [PDF](https://arxiv.org/pdf/2505.22648)
+
+> **TL;DR.** An end-to-end recipe for ReAct-style information-seeking agents (browsing-data construction, trajectory sampling, SFT cold start, RL); strong on GAIA and WebWalkerQA.
+
+<details><summary>Abstract</summary>
+
+Addressing intricate real-world problems necessitates in-depth information seeking and multi-step reasoning. Recent progress in agentic systems, exemplified by Deep Research, underscores the potential for autonomous multi-step research. In this work, we present a cohesive paradigm for building end-to-end agentic information seeking agents from a data-centric and training-stage perspective. Our approach consists of four key stages: (1) browsing data construction, (2) trajectories sampling, (3) supervised fine-tuning for effective cold start, and (4) reinforcement learning for enhanced generalisation. We instantiate this framework in a web agent based on the ReAct, WebDancer. Empirical evaluations on the challenging information seeking benchmarks, GAIA and WebWalkerQA, demonstrate the strong performance of WebDancer, achieving considerable results and highlighting the efficacy of our training paradigm. Further analysis of agent training provides valuable insights and actionable, systematic pathways for developing more capable agentic models. The codes and demo will be released in this https URL.
+
+</details>
+
+#### [WebThinker: Empowering Large Reasoning Models with Deep Research Capability](https://arxiv.org/abs/2504.21776)
+2025-04 · [PDF](https://arxiv.org/pdf/2504.21776)
+
+> **TL;DR.** A deep-research agent that lets large reasoning models autonomously search, navigate, and draft reports mid-reasoning (Deep Web Explorer + Think-Search-and-Draft), trained with iterative online DPO.
+
+<details><summary>Abstract</summary>
+
+Large reasoning models (LRMs), such as OpenAI-o1 and DeepSeek-R1, demonstrate impressive long-horizon reasoning capabilities. However, their reliance on static internal knowledge limits their performance on complex, knowledge-intensive tasks and hinders their ability to produce comprehensive research reports requiring synthesis of diverse web information. To address this, we propose WebThinker, a deep research agent that empowers LRMs to autonomously search the web, navigate among web pages, and draft reports during the reasoning process. WebThinker integrates a Deep Web Explorer module, enabling LRMs to dynamically search, navigate, and extract information from the web when encountering knowledge gaps. It also employs an Autonomous Think-Search-and-Draft strategy, allowing the model to seamlessly interleave reasoning, information gathering, and report writing in real time. To further enhance research tool utilization, we introduce an RL-based training strategy via iterative online Direct Preference Optimization (DPO). Extensive experiments on complex reasoning benchmarks (GPQA, GAIA, WebWalkerQA, HLE) and scientific report generation tasks (Glaive) demonstrate that WebThinker significantly outperforms existing methods and strong proprietary systems. Our approach enhances LRM reliability and applicability in complex scenarios, paving the way for more capable and versatile deep research systems. The code is available at this https URL.
+
+</details>
 
 #### DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data
 `HF Daily Paper`
@@ -342,10 +376,16 @@ AI-assisted research is crossing a threshold: fully automated systems can now ge
 
 ### Methods: Multimodal
 
-#### MM-Search-R1
-`ACL 2026`
+#### [MMSearch-R1: Incentivizing LMMs to Search](https://arxiv.org/abs/2506.20670)
+`ACL 2026` · 2025-06 · [PDF](https://arxiv.org/pdf/2506.20670)
 
-> **TL;DR.** _pending._
+> **TL;DR.** The first end-to-end RL framework for on-demand multi-turn multimodal search (image + text tools) with a search-penalty reward; matches a larger RAG model while cutting search calls by 30%+.
+
+<details><summary>Abstract</summary>
+
+Robust deployment of large multimodal models (LMMs) in real-world scenarios requires access to external knowledge sources, given the complexity and dynamic nature of real-world information. Existing approaches such as retrieval-augmented generation (RAG) and prompt engineered search agents rely on rigid pipelines, often leading to inefficient or excessive search behaviors. We present MMSearch-R1, the first end-to-end reinforcement learning framework that enables LMMs to perform on-demand, multi-turn search in real-world Internet environments. Our framework integrates both image and text search tools, allowing the model to reason about when and how to invoke them guided by an outcome-based reward with a search penalty. To support training, We collect a multimodal search VQA dataset through a semi-automated pipeline that covers diverse visual and textual knowledge needs and curate a search-balanced subset with both search-required and search-free samples, which proves essential for shaping efficient and on-demand search behavior. Extensive experiments on knowledge-intensive and info-seeking VQA tasks show that our model not only outperforms RAG-based baselines of the same model size, but also matches the performance of a larger RAG-based model while reducing search calls by over 30%. We further analyze key empirical findings to offer actionable insights for advancing research in multimodal search.
+
+</details>
 
 #### Deep-MM-Search-R1
 `arXiv 2510`
