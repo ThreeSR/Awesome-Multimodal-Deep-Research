@@ -69,10 +69,16 @@ python3 fetch_arxiv.py --title "MMSearch: Benchmarking ..." --section "(Multi-)I
 
 > **TL;DR.** _pending._
 
-#### Encyclopedic VQA: Visual Questions About Detailed Properties of Fine-grained Categories
-`ICCV 2023`
+#### [Encyclopedic VQA: Visual questions about detailed properties of fine-grained categories](https://arxiv.org/abs/2306.09224)
+`ICCV 2023` · 2023-06 · [PDF](https://arxiv.org/pdf/2306.09224)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A 1M-sample VQA dataset (221k unique Q+A) about fine-grained categories, paired with a Wikipedia knowledge base marking supporting evidence; SOTA VLMs score ~13%, but retrieval augmentation helps greatly.
+
+<details><summary>Abstract</summary>
+
+We propose Encyclopedic-VQA, a large scale visual question answering (VQA) dataset featuring visual questions about detailed properties of fine-grained categories and instances. It contains 221k unique question+answer pairs each matched with (up to) 5 images, resulting in a total of 1M VQA samples. Moreover, our dataset comes with a controlled knowledge base derived from Wikipedia, marking the evidence to support each answer. Empirically, we show that our dataset poses a hard challenge for large vision+language models as they perform poorly on our dataset: PaLI is state-of-the-art on OK-VQA, yet it only achieves 13.0% accuracy on our dataset. Moreover, we experimentally show that progress on answering our encyclopedic questions can be achieved by augmenting large models with a mechanism that retrieves relevant information from the knowledge base. An oracle experiment with perfect retrieval achieves 87.0% accuracy on the single-hop portion of our dataset, and an automatic retrieval-augmented prototype yields 48.8%. We believe that our dataset enables future research on retrieval-augmented vision+language models.
+
+</details>
 
 #### OK-VQA & A-OKVQA
 
@@ -107,9 +113,16 @@ Deep-Research agents, which integrate large language models (LLMs) with search t
 
 </details>
 
-#### BrowseComp-ZH
+#### [BrowseComp-ZH: Benchmarking Web Browsing Ability of Large Language Models in Chinese](https://arxiv.org/abs/2504.19314)
+2025-04 · [PDF](https://arxiv.org/pdf/2504.19314)
 
-> **TL;DR.** _pending._
+> **TL;DR.** 289 multi-hop questions across 11 domains evaluating LLM agents on the Chinese web; most models score below 10-20%, and the best (OpenAI DeepResearch) reaches only 42.9%.
+
+<details><summary>Abstract</summary>
+
+As large language models (LLMs) evolve into tool-using agents, the ability to browse the web in real-time has become a critical yardstick for measuring their reasoning and retrieval competence. Existing benchmarks such as BrowseComp concentrate on English and overlook the linguistic, infrastructural, and censorship-related complexities of other major information ecosystems -- most notably Chinese. To address this gap, we introduce BrowseComp-ZH, a high-difficulty benchmark purpose-built to comprehensively evaluate LLM agents on the Chinese web. BrowseComp-ZH consists of 289 multi-hop questions spanning 11 diverse domains. Each question is reverse-engineered from a short, objective, and easily verifiable answer (e.g., a date, number, or proper noun). A two-stage quality control protocol is applied to strive for high question difficulty and answer uniqueness. We benchmark over 20 state-of-the-art language models and agentic search systems on our proposed BrowseComp-ZH. Despite their strong conversational and retrieval capabilities, most models struggle severely: a large number achieve accuracy rates below 10%, and only a handful exceed 20%. Even the best-performing system, OpenAI's DeepResearch, reaches just 42.9%. These results demonstrate the considerable difficulty of BrowseComp-ZH, where success demands not only effective retrieval strategies, but also sophisticated reasoning and information reconciliation -- capabilities that current models still struggle to master. Our dataset, construction guidelines, and benchmark results have been publicly released.
+
+</details>
 
 #### [BrowseComp-V3: A Visual, Vertical, and Verifiable Benchmark for Multimodal Browsing Agents](https://arxiv.org/abs/2602.12876)
 2026-02 · [PDF](https://arxiv.org/pdf/2602.12876)
@@ -235,24 +248,43 @@ Benchmarks are important tools for tracking the rapid advancements in large lang
 
 > **TL;DR.** A benchmark for real-world multimodal reasoning that jointly requires perception, search, and reasoning; introduced with DeepEyesV2 (see Models & Methods).
 
-#### VisBrowse-Bench: Benchmarking Visual-Native Search for Multimodal Browsing Agents
-`Ant`
+#### [VisBrowse-Bench: Benchmarking Visual-Native Search for Multimodal Browsing Agents](https://arxiv.org/abs/2603.16289)
+`Ant` · 2026-03 · [PDF](https://arxiv.org/pdf/2603.16289)
 
-> **TL;DR.** _pending._
+> **TL;DR.** 169 expert-built VQA instances for visual-native search, requiring cross-validation of text-image evidence and reasoning over webpages' native visuals; best model (Claude-4.6-Opus) reaches only 47.6%.
+
+<details><summary>Abstract</summary>
+
+The rapid advancement of Multimodal Large Language Models (MLLMs) has enabled browsing agents to acquire and reason over multimodal information in the real world. But existing benchmarks suffer from two limitations: insufficient evaluation of visual reasoning ability and the neglect of native visual information of web pages in the reasoning chains. To address these challenges, we introduce a new benchmark for visual-native search, VisBrowse-Bench. It contains 169 VQA instances covering multiple domains and evaluates the models' visual reasoning capabilities during the search process through multimodal evidence cross-validation via text-image retrieval and joint reasoning. These data were constructed by human experts using a multi-stage pipeline and underwent rigorous manual verification. We additionally propose an agent workflow that can effectively drive the browsing agent to actively collect and reason over visual information during the search process. We comprehensively evaluated both open-source and closed-source models in this workflow. Experimental results show that even the best-performing model, Claude-4.6-Opus only achieves an accuracy of 47.6%, while the proprietary Deep Research model, o3-deep-research only achieves an accuracy of 41.1%. The code and data can be accessed at: this https URL
+
+</details>
 
 #### MM-DR-Bench
 `OSU & Amazon`
 
 > **TL;DR.** _pending._
 
-#### MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains
-`ICLR 2026 Oral`
+#### [MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains](https://arxiv.org/abs/2603.00873)
+`ICLR 2026 Oral` · 2026-03 · [PDF](https://arxiv.org/pdf/2603.00873)
 
-> **TL;DR.** _pending._
+> **TL;DR.** The first agentic MM-RAG benchmark with long step-wise reasoning-chain annotations (3,333 examples, avg 3.7 hops, 5 reasoning structures) plus process-level metrics; also introduces the Search-Align fine-tuning framework.
 
-#### InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+With the increasing demand for step-wise, cross-modal, and knowledge-grounded reasoning, multimodal large language models (MLLMs) are evolving beyond the traditional fixed retrieve-then-generate paradigm toward more sophisticated agentic multimodal retrieval-augmented generation (MM-RAG). Existing benchmarks, however, mainly focus on simplified QA with short retrieval chains, leaving adaptive planning and multimodal reasoning underexplored. We present MC-Search, the first benchmark for agentic MM-RAG with long, step-wise annotated reasoning chains spanning five representative reasoning structures. Each example specifies sub-questions, retrieval modalities, supporting facts, and intermediate answers, with fidelity ensured by HAVE (Hop-wise Attribution and Verification of Evidence), resulting in 3,333 high-quality examples averaging 3.7 hops. Beyond answer accuracy, MC-Search introduces new process-level metrics for reasoning quality, stepwise retrieval and planning accuracy. By developing a unified agentic MM-RAG pipeline, we benchmark six leading MLLMs and reveal systematic issues such as over- and under-retrieval and modality-misaligned planning. Finally, we introduce Search-Align, a process-supervised fine-tuning framework leveraging verified reasoning chains, showing that our data not only enables faithful evaluation but also improves planning and retrieval fidelity in open-source MLLMs.
+
+</details>
+
+#### [InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search](https://arxiv.org/abs/2605.07510)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.07510)
+
+> **TL;DR.** 2,061 examples for interleaved language-vision agentic search across three levels, where textual and visual evidence repeatedly conditions later search; best model below 50% accuracy. Ships InterLV-Agent.
+
+<details><summary>Abstract</summary>
+
+Existing benchmarks for multimodal agentic search evaluate multimodal search and visual browsing, but visual evidence is either confined to the input or treated as an answer endpoint rather than part of an interleaved search trajectory. We introduce InterLV-Search, a benchmark for Interleaved Language-Vision Agentic Search, in which textual and visual evidence is repeatedly used to condition later search. It contains 2,061 examples across three levels: active visual evidence seeking, controlled offline interleaved multimodal search, and open-web interleaved multimodal search. Beyond existing benchmarks, it also includes multimodal multi-branch samples that involve comparison between multiple entities during the evidence search. We construct Level 1 and Level 2 with automated pipelines and Level 3 with a machine-led, human-supervised open-web pipeline. We further provide InterLV-Agent for standardized tool use, trajectory logging, and evaluation. Experiments on proprietary and open-source multimodal agents show that current systems remain far from solving interleaved multimodal search, with the best model below 50% overall accuracy, highlighting challenges in visual evidence seeking, search control, and multimodal evidence integration. We release the benchmark data and evaluation code at this https URL
+
+</details>
 
 #### HyperEyes (IMEB Benchmark)
 
@@ -465,9 +497,16 @@ We present Tongyi DeepResearch, an agentic large language model, which is specif
 
 </details>
 
-#### OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents
+#### [OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents](https://arxiv.org/abs/2605.05185)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.05185)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A fully open recipe for multimodal deep-search agents: Wikipedia-path data synthesis (SFT-36k + RL-8k), a unified text/image/OCR/crop/super-res tool environment, and fatal-aware GRPO; +10 points average across seven benchmarks.
+
+<details><summary>Abstract</summary>
+
+Deep search has become a crucial capability for frontier multimodal agents, enabling models to solve complex questions through active search, evidence verification, and multi-step reasoning. Despite rapid progress, top-tier multimodal search agents remain difficult to reproduce, largely due to the absence of open high-quality training data, transparent trajectory synthesis pipelines, or detailed training recipes. To this end, we introduce OpenSearch-VL, a fully open-source recipe for training frontier multimodal deep search agents with agentic reinforcement learning. First, we curated a dedicated pipeline to construct high-quality training data through Wikipedia path sampling, fuzzy entity rewriting, and source-anchor visual grounding, which jointly reduce shortcuts and one-step retrieval collapse. Based on this pipeline, we curate two training datasets, SearchVL-SFT-36k for SFT and SearchVL-RL-8k for RL. Besides, we design a diverse tool environment that unifies text search, image search, OCR, cropping, sharpening, super-resolution, and perspective correction, enabling agents to combine active perception with external knowledge acquisition. Finally, we propose a multi-turn fatal-aware GRPO training algorithm that handles cascading tool failures by masking post-failure tokens while preserving useful pre-failure reasoning through one-sided advantage clamping. Built on this recipe, OpenSearch-VL delivers substantial performance gains, with over 10-point average improvements across seven benchmarks, and achieves results comparable to proprietary commercial models on several tasks. We will release all data, code, and models to support open research on multimodal deep search agents.
+
+</details>
 
 #### Vision-DeepResearch
 `MMLab` · Base: `Qwen3-VL` · rllm + VeRL
@@ -507,14 +546,27 @@ Multimodal deep search agents have shown great potential in solving complex task
 
 </details>
 
-#### REDSearcher: A Scalable and Cost-Efficient Framework for Long-Horizon Search Agents
+#### [REDSearcher: A Scalable and Cost-Efficient Framework for Long-Horizon Search Agents](https://arxiv.org/abs/2602.14234)
+2026-02 · [PDF](https://arxiv.org/pdf/2602.14234)
 
-> **TL;DR.** SFT + RL; covers both textual and multimodal search.
+> **TL;DR.** A unified framework co-designing complex task synthesis (graph-topology difficulty control), mid-training of atomic skills, and post-training; SOTA on text and multimodal search, releasing 10K text + 5K multimodal trajectories.
 
-#### [Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework](https://github.com/rickyang1114/multimodal-deepresearcher)
-`AAAI 2026 Oral` · [Code](https://github.com/rickyang1114/multimodal-deepresearcher) [![Stars](https://img.shields.io/github/stars/rickyang1114/multimodal-deepresearcher?style=social)](https://github.com/rickyang1114/multimodal-deepresearcher)
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+Large language models are transitioning from general-purpose knowledge engines to real-world problem solvers, yet optimizing them for deep search tasks remains challenging. The central bottleneck lies in the extreme sparsity of high-quality search trajectories and reward signals, arising from the difficulty of scalable long-horizon task construction and the high cost of interaction-heavy rollouts involving external tool calls. To address these challenges, we propose REDSearcher, a unified framework that co-designs complex task synthesis, mid-training, and post-training for scalable search-agent optimization. Specifically, REDSearcher introduces the following improvements: (1) We frame task synthesis as a dual-constrained optimization, where task difficulty is precisely governed by graph topology and evidence dispersion, allowing scalable generation of complex, high-quality tasks. (2) We introduce tool-augmented queries to encourage proactive tool use rather than passive recall. (3) During mid-training, we strengthen core atomic capabilities (knowledge, planning, and function calling), substantially reducing the cost of collecting high-quality trajectories for downstream training. (4) We build a local simulated environment that enables rapid, low-cost algorithmic iteration for reinforcement learning experiments. Across both text-only and multimodal search-agent benchmarks, our approach achieves state-of-the-art performance. To facilitate future research on long-horizon search agents, we will release 10K high-quality complex text search trajectories, 5K multimodal trajectories and 1K text RL query set, together with code and model checkpoints.
+
+</details>
+
+#### [Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework](https://arxiv.org/abs/2506.02454)
+`AAAI 2026 Oral` · 2025-06 · [PDF](https://arxiv.org/pdf/2506.02454) · [Code](https://github.com/rickyang1114/multimodal-deepresearcher) [![Stars](https://img.shields.io/github/stars/rickyang1114/multimodal-deepresearcher?style=social)](https://github.com/rickyang1114/multimodal-deepresearcher)
+
+> **TL;DR.** An agentic framework that writes text-chart interleaved reports via a Formal Description of Visualization (FDV) representation; 82% win rate over the baseline, with a new MultimodalReportBench.
+
+<details><summary>Abstract</summary>
+
+Visualizations play a crucial part in effective communication of concepts and information. Recent advances in reasoning and retrieval augmented generation have enabled Large Language Models (LLMs) to perform deep research and generate comprehensive reports. Despite its progress, existing deep research frameworks primarily focus on generating text-only content, leaving the automated generation of interleaved texts and visualizations underexplored. This novel task poses key challenges in designing informative visualizations and effectively integrating them with text reports. To address these challenges, we propose Formal Description of Visualization (FDV), a structured textual representation of charts that enables LLMs to learn from and generate diverse, high-quality visualizations. Building on this representation, we introduce Multimodal DeepResearcher, an agentic framework that decomposes the task into four stages: (1) researching, (2) exemplar report textualization, (3) planning, and (4) multimodal report generation. For the evaluation of generated multimodal reports, we develop MultimodalReportBench, which contains 100 diverse topics served as inputs along with 5 dedicated metrics. Extensive experiments across models and evaluation methods demonstrate the effectiveness of Multimodal DeepResearcher. Notably, utilizing the same Claude 3.7 Sonnet model, Multimodal DeepResearcher achieves an 82% overall win rate over the baseline method.
+
+</details>
 
 #### [OmniSearch: Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent](https://arxiv.org/abs/2411.02937)
 `ICLR 2025` · 2024-11 · [PDF](https://arxiv.org/pdf/2411.02937)
@@ -639,9 +691,16 @@ Deep research agents autonomously conduct open-ended investigations, integrating
 
 </details>
 
-#### LongSeeker: Elastic Context Orchestration for Long-Horizon Search Agents
+#### [LongSeeker: Elastic Context Orchestration for Long-Horizon Search Agents](https://arxiv.org/abs/2605.05191)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.05191)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Context-ReAct, an elastic context-management paradigm (Skip/Compress/Rollback/Snippet/Delete); LongSeeker (Qwen3-30B-A3B, 10k trajectories) hits 61.5% BrowseComp / 62.5% BrowseComp-ZH, beating Tongyi DeepResearch.
+
+<details><summary>Abstract</summary>
+
+Long-horizon search agents must manage a rapidly growing working context as they reason, call tools, and observe information. Naively accumulating all intermediate content can overwhelm the agent, increasing costs and the risk of errors. We propose that effective context management should be adaptive: parts of the agent's trajectory are maintained at different levels of detail depending on their current relevance to the task. To operationalize this principle, we introduce Context-ReAct, a general agentic paradigm for elastic context orchestration that integrates reasoning, context management, and tool use in a unified loop. Context-ReAct provides five atomic operations: Skip, Compress, Rollback, Snippet and Delete, which allow the agent to dynamically reshape its working context, preserving important evidence, summarizing resolved information, discarding unhelpful branches, and controlling context size. We prove that the Compress operator is expressively complete, while the other specialized operators provide efficiency and fidelity guarantees that reduce generation cost and hallucination risk. Building on this paradigm, we develop LongSeeker, a long-horizon search agent fine-tuned from Qwen3-30B-A3B on 10k synthesized trajectories. Across four representative search benchmarks, LongSeeker achieves 61.5% on BrowseComp and 62.5% on BrowseComp-ZH, substantially outperforming Tongyi DeepResearch (43.2% and 46.7%) and AgentFold (36.2% and 47.3%). These results highlight the potential of adaptive context management, showing that agents can achieve more reliable and efficient long-horizon reasoning by actively shaping their working memory.
+
+</details>
 
 #### DLLM-Searcher: Adapting Diffusion Large Language Model for Search Agents
 
@@ -689,9 +748,16 @@ _None yet._
 
 ### Methods: TBD
 
-#### A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research
+#### [A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research](https://arxiv.org/abs/2602.13830)
+2026-02 · [PDF](https://arxiv.org/pdf/2602.13830)
 
-> **TL;DR.** _pending._
+> **TL;DR.** DualGraph memory keeps two co-evolving graphs (an Outline Graph + a Knowledge Graph) to separate what the agent knows from how it writes, driving targeted exploration; 53.08 RACE on DeepResearch Bench with GPT-5.
+
+<details><summary>Abstract</summary>
+
+Open-Ended Deep Research (OEDR) pushes LLM agents beyond short-form QA toward long-horizon workflows that iteratively search, connect, and synthesize evidence into structured reports. However, existing OEDR agents largely follow either linear ``search-then-generate'' accumulation or outline-centric planning. The former suffers from lost-in-the-middle failures as evidence grows, while the latter relies on the LLM to implicitly infer knowledge gaps from the outline alone, providing weak supervision for identifying missing relations and triggering targeted exploration. We present DualGraph memory, an architecture that separates what the agent knows from how it writes. DualGraph maintains two co-evolving graphs: an Outline Graph (OG), and a Knowledge Graph (KG), a semantic memory that stores fine-grained knowledge units, including core entities, concepts, and their relations. By analyzing the KG topology together with structural signals from the OG, DualGraph generates targeted search queries, enabling more efficient and comprehensive iterative knowledge-driven exploration and refinement. Across DeepResearch Bench, DeepResearchGym, and DeepConsult, DualGraph consistently outperforms state-of-the-art baselines in report depth, breadth, and factual grounding; for example, it reaches a 53.08 RACE score on DeepResearch Bench with GPT-5. Moreover, ablation studies confirm the central role of the dual-graph design.
+
+</details>
 
 #### Step-DR
 
