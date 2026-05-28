@@ -54,6 +54,10 @@ def _get(url, timeout=30):
             return resp.status, resp.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode("utf-8", "replace") if e.fp else ""
+    except TimeoutError as e:
+        raise FetchError(
+            f"timed out fetching {url} (arXiv slow or throttled); try again shortly"
+        ) from e
     except urllib.error.URLError as e:
         raise FetchError(f"network error fetching {url}: {e.reason}") from e
 

@@ -114,7 +114,13 @@ Deep-Research agents, which integrate large language models (LLMs) with search t
 #### [BrowseComp-V3: A Visual, Vertical, and Verifiable Benchmark for Multimodal Browsing Agents](https://arxiv.org/abs/2602.12876)
 2026-02 · [PDF](https://arxiv.org/pdf/2602.12876)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A 300-question multimodal browsing benchmark with cross-modal multi-hop reasoning over publicly searchable evidence and subgoal-level process evaluation; introduces the OmniSeeker agent (SOTA models reach only 36%).
+
+<details><summary>Abstract</summary>
+
+Multimodal large language models (MLLMs), equipped with increasingly advanced planning and tool-use capabilities, are evolving into autonomous agents capable of performing multimodal web browsing and deep search in open-world environments. However, existing benchmarks for multimodal browsing remain limited in task complexity, evidence accessibility, and evaluation granularity, hindering comprehensive and reproducible assessments of deep search capabilities. To address these limitations, we introduce BrowseComp-$V^3$, a novel benchmark consisting of 300 carefully curated and challenging questions spanning diverse domains. The benchmark emphasizes deep, multi-level, and cross-modal multi-hop reasoning, where critical evidence is interleaved across textual and visual modalities within and across web pages. All supporting evidence is strictly required to be publicly searchable, ensuring fairness and reproducibility. Beyond final-answer accuracy, we incorporate an expert-validated, subgoal-driven process evaluation mechanism that enables fine-grained analysis of intermediate reasoning behaviors and systematic characterization of capability boundaries. In addition, we propose OmniSeeker, a unified multimodal browsing agent framework integrating diverse web search and visual perception tools. Comprehensive experiments demonstrate that even state-of-the-art models achieve only 36% accuracy on our benchmark, revealing critical bottlenecks in multimodal information integration and fine-grained perception. Our results highlight a fundamental gap between current model capabilities and robust multimodal deep search in real-world settings.
+
+</details>
 
 #### xbench: Tracking Agents Productivity Scaling with Profession-Aligned Real-World Evaluations
 
@@ -505,7 +511,13 @@ In real-world video question answering scenarios, videos often provide only loca
 #### [Marco DeepResearch: Unlocking Efficient Deep Research Agents via Verification-Centric Design](https://arxiv.org/abs/2603.28376)
 2026-03 · [PDF](https://arxiv.org/pdf/2603.28376)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A verification-centric deep-research agent that injects explicit verification into QA synthesis, trajectory construction, and test-time scaling; an 8B model rivals 30B agents on BrowseComp and BrowseComp-ZH.
+
+<details><summary>Abstract</summary>
+
+Deep research agents autonomously conduct open-ended investigations, integrating complex information retrieval with multi-step reasoning across diverse sources to solve real-world problems. To sustain this capability on long-horizon tasks, reliable verification is critical during both training and inference. A major bottleneck in existing paradigms stems from the lack of explicit verification mechanisms in QA data synthesis, trajectory construction, and test-time scaling. Errors introduced at each stage propagate downstream and degrade the overall agent performance. To address this, we present Marco DeepResearch, a deep research agent optimized with a verification-centric framework design at three levels: **(1) QA Data Synthesis:** We introduce verification mechanisms to graph-based and agent-based QA synthesis to control question difficulty while ensuring answers are unique and correct; **(2) Trajectory Construction:** We design a verification-driven trajectory synthesis method that injects explicit verification patterns into training trajectories; and **(3) Test-time scaling:** We use Marco DeepResearch itself as a verifier at inference time and effectively improve performance on challenging questions. Extensive experimental results demonstrate that our proposed Marco DeepResearch agent significantly outperforms 8B-scale deep research agents on most challenging benchmarks, such as BrowseComp and BrowseComp-ZH. Crucially, under a maximum budget of 600 tool calls, Marco DeepResearch even surpasses or approaches several 30B-scale agents, like Tongyi DeepResearch-30B.
+
+</details>
 
 #### LongSeeker: Elastic Context Orchestration for Long-Horizon Search Agents
 
@@ -598,12 +610,24 @@ _None yet._
 #### [General Agentic Memory Via Deep Research](https://arxiv.org/abs/2511.18423)
 `HF #1 Paper` · 2025-11 · [PDF](https://arxiv.org/pdf/2511.18423)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A "just-in-time" agent memory framework (GAM) pairing a lightweight Memorizer with a Researcher that retrieves and integrates from a full page-store at runtime, optimized end-to-end with RL.
+
+<details><summary>Abstract</summary>
+
+Memory is critical for AI agents, yet the widely-adopted static memory, aiming to create readily available memory in advance, is inevitably subject to severe information loss. To address this limitation, we propose a novel framework called **general agentic memory (GAM)**. GAM follows the principle of "**just-in time (JIT) compilation**" where it focuses on creating optimized contexts for its client at runtime while keeping only simple but useful memory during the offline stage. To this end, GAM employs a duo-design with the following components. 1) **Memorizer**, which highlights key historical information using a lightweight memory, while maintaining complete historical information within a universal page-store. 2) **Researcher**, which retrieves and integrates useful information from the page-store for its online request guided by the pre-constructed memory. This design allows GAM to effectively leverage the agentic capabilities and test-time scalability of frontier large language models (LLMs), while also facilitating end-to-end performance optimization through reinforcement learning. In our experimental study, we demonstrate that GAM achieves substantial improvement on various memory-grounded task completion scenarios against existing memory systems.
+
+</details>
 
 #### [What Does It Take to Be a Good AI Research Agent? Studying the Role of Ideation Diversity](https://arxiv.org/abs/2511.15593)
 `HF #3 Paper` · 2025-11 · [PDF](https://arxiv.org/pdf/2511.15593)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Studies ideation diversity as a driver of AI research-agent performance on MLE-bench: higher-performing agents show more diverse ideas, and a controlled experiment confirms more diversity yields stronger results.
+
+<details><summary>Abstract</summary>
+
+AI research agents offer the promise to accelerate scientific progress by automating the design, implementation, and training of machine learning models. However, the field is still in its infancy, and the key factors driving the success or failure of agent trajectories are not fully understood. We examine the role that ideation diversity plays in agent performance. First, we analyse agent trajectories on MLE-bench, a well-known benchmark to evaluate AI research agents, across different models and agent scaffolds. Our analysis reveals that different models and agent scaffolds yield varying degrees of ideation diversity, and that higher-performing agents tend to have increased ideation diversity. Further, we run a controlled experiment where we modify the degree of ideation diversity, demonstrating that higher ideation diversity results in stronger performance. Finally, we strengthen our results by examining additional evaluation metrics beyond the standard medal-based scoring of MLE-bench, showing that our findings still hold across other agent performance metrics.
+
+</details>
 
 #### Chart Deep Research in LVLMs via Parallel Relative Policy Optimization
 
@@ -642,4 +666,10 @@ _None yet._
 #### [A Comprehensive Survey of Deep Research: Systems, Methodologies, and Applications](https://arxiv.org/abs/2506.12594)
 2025-06 · [PDF](https://arxiv.org/pdf/2506.12594)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A survey of 80+ Deep Research systems since 2023 with a hierarchical taxonomy across four dimensions: foundation/reasoning models, tool use, task planning/execution, and knowledge synthesis.
+
+<details><summary>Abstract</summary>
+
+This survey examines the rapidly evolving field of Deep Research systems -- AI-powered applications that automate complex research workflows through the integration of large language models, advanced information retrieval, and autonomous reasoning capabilities. We analyze more than 80 commercial and non-commercial implementations that have emerged since 2023, including OpenAI/Deep Research, Gemini/Deep Research, Perplexity/Deep Research, and numerous open-source alternatives. Through comprehensive examination, we propose a novel hierarchical taxonomy that categorizes systems according to four fundamental technical dimensions: foundation models and reasoning engines, tool utilization and environmental interaction, task planning and execution control, and knowledge synthesis and output generation. We explore the architectural patterns, implementation approaches, and domain-specific adaptations that characterize these systems across academic, scientific, business, and educational applications. Our analysis reveals both the significant capabilities of current implementations and the technical and ethical challenges they present regarding information accuracy, privacy, intellectual property, and accessibility. The survey concludes by identifying promising research directions in advanced reasoning architectures, multimodal integration, domain specialization, human-AI collaboration, and ecosystem standardization that will likely shape the future evolution of this transformative technology. By providing a comprehensive framework for understanding Deep Research systems, this survey contributes to both the theoretical understanding of AI-augmented knowledge work and the practical development of more capable, responsible, and accessible research technologies. The paper resources can be viewed at https://github.com/scienceaix/deepresearch.
+
+</details>
