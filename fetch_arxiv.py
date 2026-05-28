@@ -265,6 +265,18 @@ def make_tldr(abstract):
 # --------------------------------------------------------------------------- #
 # Entry rendering
 
+def github_stars_badge(url):
+    """Auto-updating shields.io star badge for a github repo URL, else ''."""
+    m = re.search(r"github\.com/([^/\s]+)/([^/\s#?]+)", url)
+    if not m:
+        return ""
+    owner, repo = m.group(1), m.group(2)
+    if repo.endswith(".git"):
+        repo = repo[:-4]
+    badge = f"https://img.shields.io/github/stars/{owner}/{repo}?style=social"
+    return f"[![Stars]({badge})]({url})"
+
+
 def render_entry(meta, *, tldr, affiliation, venue, base, code, project):
     abs_url = ABS_URL.format(id=meta["id"])
     pdf_url = PDF_URL.format(id=meta["id"])
@@ -290,7 +302,11 @@ def render_entry(meta, *, tldr, affiliation, venue, base, code, project):
         meta_tokens.append(f"Base: `{base}`")
     meta_tokens.append(f"[PDF]({pdf_url})")
     if code:
-        meta_tokens.append(f"[Code]({code})")
+        token = f"[Code]({code})"
+        badge = github_stars_badge(code)
+        if badge:
+            token += f" {badge}"
+        meta_tokens.append(token)
     if project:
         meta_tokens.append(f"[Project]({project})")
     lines.append(" · ".join(meta_tokens))

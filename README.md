@@ -2,7 +2,58 @@
 
 > A curated list of papers, benchmarks, and methods for **Multimodal Deep Research**: agents that *search, browse, and reason* over both text and visual information to answer open-ended, knowledge-intensive questions.
 
-If you find this list helpful, please give it a ⭐. Contributions are welcome (see [Maintenance](#maintenance)). Spotted something wrong or missing? Open an issue or PR.
+If you find this list helpful, please give it a ⭐ and **join us in maintaining it**. This is a community effort, and contributions of any size are very welcome.
+
+## How to Contribute
+
+We want this to be the most complete, up-to-date map of multimodal deep research, and we can't do it alone. Found a paper that's missing? A broken link? A TL;DR you'd phrase better? Please jump in.
+
+### Ways to contribute
+
+- **Quick (no setup):** open an [issue](../../issues) with the arXiv link (and code repo, if any). A maintainer will add it.
+- **Direct:** open a Pull Request adding your entry under the right section, following the format below.
+
+### Entry format
+
+Every entry keeps a one-line **TL;DR** visible by default and folds the full abstract:
+
+````markdown
+#### [Paper Title](https://arxiv.org/abs/XXXX.XXXXX)
+`Affiliation` · `Venue` · YYYY-MM · Base: `Model` · [PDF](...) · [Code](...) [![Stars](https://img.shields.io/github/stars/OWNER/REPO?style=social)](...)
+
+> **TL;DR.** One short, crisp sentence.
+
+<details><summary>Abstract</summary>
+
+The full paper abstract.
+</details>
+````
+
+### Generate an entry automatically
+
+Don't hand-write the boilerplate. [`fetch_arxiv.py`](fetch_arxiv.py) (arXiv-first, stdlib-only, no dependencies) builds the entry for you:
+
+```bash
+# 1) Preview without writing (recommended first step):
+python3 fetch_arxiv.py --id 2409.12959 --section "Benchmarks" --dry-run
+
+# 2) Insert it. Add the metadata arXiv can't give and a hand-written TL;DR:
+python3 fetch_arxiv.py --id 2409.12959 --section "Benchmarks" \
+    --affiliation "CUHK MMLab" --venue "ICLR 2025" --base "GPT-4o" \
+    --code https://github.com/owner/repo --tldr "One crisp sentence."
+
+# You can also resolve a paper by URL or by title search:
+python3 fetch_arxiv.py --url https://arxiv.org/abs/2409.12959 --section "Benchmarks"
+python3 fetch_arxiv.py --title "MMSearch: Benchmarking ..." --section "Benchmarks"
+```
+
+### Conventions
+
+- **arXiv-first.** The script uses the Atom API and falls back to the more lenient HTML abstract page on a `429` rate limit. It never retries a `429` (that only extends the ban).
+- **No auto-push.** The script only edits `README.md` — review the diff and commit yourself, then open a PR.
+- **Affiliation / venue** are rarely available from arXiv. If you don't have them, leave them out (no placeholder); add them later when you do.
+- **TL;DR** should be a single short sentence. The script's auto first-sentence fallback is flagged with `<!-- TLDR: refine -->` so you can rewrite it into something crisp.
+- **Stars.** For entries with code, include a `![Stars](https://img.shields.io/github/stars/OWNER/REPO?style=social)` badge (the script adds it automatically when `--code` is a GitHub URL). It updates on its own.
 
 ## Contents
 
@@ -12,11 +63,6 @@ If you find this list helpful, please give it a ⭐. Contributions are welcome (
   - [Benchmarks](#benchmarks-1)
   - [Method Papers](#method-papers-1)
   - [Survey Papers](#survey-papers)
-- [Maintenance](#maintenance)
-
-## How to read an entry
-
-Each entry shows: **title** (links to the arXiv abstract) followed by a metadata line with `affiliation`, `venue`, date, and base model where known, plus `[PDF]` / `[Code]` / `[Project]` links. A one-line **TL;DR** is always visible; the full abstract is folded under *Abstract*. Entries still awaiting backfill are marked _pending_.
 
 ## Benchmarks
 
@@ -98,7 +144,7 @@ Web agents such as Deep Research have demonstrated superhuman cognitive abilitie
 > **TL;DR.** _Abstract & TL;DR pending backfill._
 
 #### [MM-DeepResearch: A Simple and Effective Multimodal Agentic Search Baseline](https://arxiv.org/abs/2603.01050)
-2026-03 · [PDF](https://arxiv.org/pdf/2603.01050) · [Code](https://github.com/HJYao00/MM-DeepResearch)
+2026-03 · [PDF](https://arxiv.org/pdf/2603.01050) · [Code](https://github.com/HJYao00/MM-DeepResearch) [![Stars](https://img.shields.io/github/stars/HJYao00/MM-DeepResearch?style=social)](https://github.com/HJYao00/MM-DeepResearch)
 
 > **TL;DR.** A multimodal deep-research agent built from hypergraph-generated search-intensive QA (Hyper-Search) and tree-searched tool-expert trajectories (DR-TTS) over an offline multi-tool search engine for agentic RL.
 
@@ -115,7 +161,7 @@ Text-only deep research, included here for reference and lineage.
 ### Benchmarks
 
 #### [BrowseComp: A Simple Yet Challenging Benchmark for Browsing Agents](https://arxiv.org/abs/2504.12516)
-`OpenAI` · 2025-04 · [PDF](https://arxiv.org/pdf/2504.12516) · [Code](https://github.com/openai/simple-evals)
+`OpenAI` · 2025-04 · [PDF](https://arxiv.org/pdf/2504.12516) · [Code](https://github.com/openai/simple-evals) [![Stars](https://img.shields.io/github/stars/openai/simple-evals?style=social)](https://github.com/openai/simple-evals)
 
 > **TL;DR.** 1,266 hard-to-find-information questions testing an agent's web-browsing persistence, with short, easily verifiable answers (text-only).
 
@@ -136,28 +182,3 @@ We present BrowseComp, a simple yet challenging benchmark for measuring the abil
 ### Survey Papers
 
 _None yet._
-
-## Maintenance
-
-This list is maintained with [`fetch_arxiv.py`](fetch_arxiv.py), an arXiv-first, stdlib-only fetcher.
-
-```bash
-# Add by arXiv id (most reliable), preview without writing:
-python3 fetch_arxiv.py --id 2409.12959 --section "Benchmarks" --dry-run
-
-# Add by URL or by title search:
-python3 fetch_arxiv.py --url https://arxiv.org/abs/2409.12959 --section "Benchmarks"
-python3 fetch_arxiv.py --title "MMSearch: Benchmarking ..." --section "Benchmarks"
-
-# Provide the hand-written TL;DR and metadata arXiv can't give:
-python3 fetch_arxiv.py --id 2409.12959 --section "Benchmarks" \
-    --affiliation "CUHK MMLab" --venue "ICLR 2025" --base "GPT-4o" \
-    --code https://github.com/... --tldr "One crisp sentence."
-```
-
-Notes:
-
-- **arXiv-first.** The Atom API is primary; on a `429` (rate limit) or empty result the script falls back to the more lenient HTML abstract page. It never retries a `429` (that only extends the ban).
-- **No auto-push.** The script only edits `README.md`; review the diff and commit yourself.
-- **Affiliation / venue** are rarely available from arXiv. When unknown they are simply left out of the entry (no placeholder); pass `--affiliation` / `--venue` when you have them, or add them to the meta line later.
-- **TL;DR** defaults to the abstract's first sentence and is flagged with `<!-- TLDR: refine -->`; pass `--tldr` (or edit afterward) for a real one-liner.
