@@ -65,9 +65,16 @@ python3 fetch_arxiv.py --title "MMSearch: Benchmarking ..." --section "(Multi-)I
 
 ### Training Data
 
-#### InfoSeek
+#### [Can Pre-trained Vision and Language Models Answer Visual Information-Seeking Questions?](https://arxiv.org/abs/2302.11713)
+2023-02 · [PDF](https://arxiv.org/pdf/2302.11713)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A visual information-seeking VQA dataset whose answers need fine-grained knowledge beyond commonsense; SOTA VLMs (PaLI-X, BLIP-2) struggle, while fine-tuning plus visual entity recognition and retrieval help.
+
+<details><summary>Abstract</summary>
+
+Pre-trained vision and language models have demonstrated state-of-the-art capabilities over existing tasks involving images and texts, including visual question answering. However, it remains unclear whether these models possess the capability to answer questions that are not only querying visual content but knowledge-intensive and information-seeking. In this study, we introduce InfoSeek, a visual question answering dataset tailored for information-seeking questions that cannot be answered with only common sense knowledge. Using InfoSeek, we analyze various pre-trained visual question answering models and gain insights into their characteristics. Our findings reveal that state-of-the-art pre-trained multi-modal models (e.g., PaLI-X, BLIP2, etc.) face challenges in answering visual information-seeking questions, but fine-tuning on the InfoSeek dataset elicits models to use fine-grained knowledge that was learned during their pre-training. Furthermore, we show that accurate visual entity recognition can be used to improve performance on InfoSeek by retrieving relevant documents, showing a significant space for improvement.
+
+</details>
 
 #### [Encyclopedic VQA: Visual questions about detailed properties of fine-grained categories](https://arxiv.org/abs/2306.09224)
 `ICCV 2023` · 2023-06 · [PDF](https://arxiv.org/pdf/2306.09224)
@@ -102,10 +109,10 @@ The Visual Question Answering (VQA) task aspires to provide a meaningful testbed
 
 </details>
 
-#### FVQA
-`ACL 2026` · `from MM-Search-R1`
+#### [FVQA (from MMSearch-R1)](https://arxiv.org/abs/2506.20670)
+`ACL 2026` · `from MMSearch-R1`
 
-> **TL;DR.** _pending._
+> **TL;DR.** The factual, search-intensive VQA training set introduced in MMSearch-R1 (see Models & Methods → Multimodal) for RL-based on-demand multimodal search.
 
 ### Benchmarks: Text
 
@@ -164,18 +171,38 @@ We introduce xbench, a dynamic, profession-aligned evaluation suite designed to 
 
 </details>
 
-#### DeepSearch QA
+#### [DeepSearchQA: Bridging the Comprehensiveness Gap for Deep Research Agents](https://arxiv.org/abs/2601.20975)
+2026-01 · [PDF](https://arxiv.org/pdf/2601.20975)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A 900-prompt benchmark across 17 fields testing exhaustive multi-step search: collating fragmented info, de-duplication/entity resolution, and reasoning about when to stop; agents struggle to balance recall and precision.
 
-#### DeepResearchEval: An Automated Framework for Deep Research Task Construction and Agentic Evaluation
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+We introduce DeepSearchQA, a 900-prompt benchmark for evaluating agents on difficult multi-step information-seeking tasks across 17 different fields. Unlike traditional benchmarks that target single answer retrieval or broad-spectrum factuality, DeepSearchQA features a dataset of challenging, handcrafted tasks designed to evaluate an agent's ability to execute complex search plans to generate exhaustive answer lists. This shift in design explicitly tests three critical, yet under-evaluated capabilities: 1) systematic collation of fragmented information from disparate sources, 2) de-duplication and entity resolution to ensure precision, and 3) the ability to reason about stopping criteria within an open-ended search space. Each task is structured as a causal chain, where discovering information for one step is dependent on the successful completion of the previous one, stressing long-horizon planning and context retention. All tasks are grounded in the open web with objectively verifiable answer sets. Our comprehensive evaluation of state-of-the-art agent architectures reveals significant performance limitations: even the most advanced models struggle to balance high recall with precision. We observe distinct failure modes ranging from premature stopping (under-retrieval) to hedging behaviors, where agents cast an overly wide net of low-confidence answers to artificially boost recall. These findings highlight critical headroom in current agent designs and position DeepSearchQA as an essential diagnostic tool for driving future research toward more robust, deep-research capabilities.
 
-#### GAIA2
-`Meta`
+</details>
 
-> **TL;DR.** _pending._
+#### [DeepResearchEval: An Automated Framework for Deep Research Task Construction and Agentic Evaluation](https://arxiv.org/abs/2601.09688)
+2026-01 · [PDF](https://arxiv.org/pdf/2601.09688)
+
+> **TL;DR.** An automated framework that builds persona-driven deep-research tasks and scores reports via adaptive point-wise quality evaluation plus active fact-checking (verifying claims by web search even without citations).
+
+<details><summary>Abstract</summary>
+
+Deep research systems are widely used for multi-step web research, analysis, and cross-source synthesis, yet their evaluation remains challenging. Existing benchmarks often require annotation-intensive task construction, rely on static evaluation dimensions, or fail to reliably verify facts when citations are missing. To bridge these gaps, we introduce DeepResearchEval, an automated framework for deep research task construction and agentic evaluation. For task construction, we propose a persona-driven pipeline generating realistic, complex research tasks anchored in diverse user profiles, applying a two-stage filter Task Qualification and Search Necessity to retain only tasks requiring multi-source evidence integration and external retrieval. For evaluation, we propose an agentic pipeline with two components: an Adaptive Point-wise Quality Evaluation that dynamically derives task-specific evaluation dimensions, criteria, and weights conditioned on each generated task, and an Active Fact-Checking that autonomously extracts and verifies report statements via web search, even when citations are missing.
+
+</details>
+
+#### [Gaia2: Benchmarking LLM Agents on Dynamic and Asynchronous Environments](https://arxiv.org/abs/2602.11964)
+`Meta` · 2026-02 · [PDF](https://arxiv.org/pdf/2602.11964)
+
+> **TL;DR.** A benchmark for LLM agents in dynamic, asynchronous environments (time pressure, noisy events, ambiguity, multi-agent), with action-level write-verifiers usable for RLVR; GPT-5 leads at 42% pass@1.
+
+<details><summary>Abstract</summary>
+
+We introduce Gaia2, a benchmark for evaluating large language model agents in realistic, asynchronous environments. Unlike prior static or synchronous evaluations, Gaia2 introduces scenarios where environments evolve independently of agent actions, requiring agents to operate under temporal constraints, adapt to noisy and dynamic events, resolve ambiguity, and collaborate with other agents. Each scenario is paired with a write-action verifier, enabling fine-grained, action-level evaluation and making Gaia2 directly usable for reinforcement learning from verifiable rewards. Our evaluation of state-of-the-art proprietary and open-source models shows that no model dominates across capabilities: GPT-5 (high) reaches the strongest overall score of 42% pass@1 but fails on time-sensitive tasks, Claude-4 Sonnet trades accuracy and speed for cost, Kimi-K2 leads among open-source models with 21% pass@1. These results highlight fundamental trade-offs between reasoning, efficiency, robustness, and expose challenges in closing the "sim2real" gap. Gaia2 is built on a consumer environment with the open-source Agents Research Environments platform and designed to be easy to extend. By releasing Gaia2 alongside the foundational ARE framework, we aim to provide the community with a flexible infrastructure for developing, benchmarking, and training the next generation of practical agent systems.
+
+</details>
 
 #### [GAIA: a benchmark for General AI Assistants](https://arxiv.org/abs/2311.12983)
 `Meta` · 2023-11 · [PDF](https://arxiv.org/pdf/2311.12983)
@@ -212,10 +239,16 @@ Retrieval-augmented generation (RAG) demonstrates remarkable performance across 
 
 ### Benchmarks: (Multi-)Image + Text
 
-#### LiveVQA
-`HUST` · `UW`
+#### [Seeking and Updating with Live Visual Knowledge (LiveVQA)](https://arxiv.org/abs/2504.05288)
+`HUST` · `UW` · 2025-04 · [PDF](https://arxiv.org/pdf/2504.05288)
 
-> **TL;DR.** Tests model performance using knowledge from after the training cutoff date.
+> **TL;DR.** A 107K-sample, 12-category dataset for evaluating and updating MLLMs on visual knowledge from after their training cutoff; tool-use / agentic visual seeking yields ~327% average gains.
+
+<details><summary>Abstract</summary>
+
+The visual world around us constantly evolves, from real-time news and social media trends to global infrastructure changes visible through satellite imagery and augmented reality enhancements. However, Multimodal Large Language Models (MLLMs), which automate many tasks, struggle to stay current, limited by the cutoff dates in their fixed training datasets. To quantify this stagnation, we introduce LiveVQA, the first-of-its-kind dataset featuring 107,143 samples and 12 categories data specifically designed to support research in both seeking and updating with live visual knowledge. Drawing from recent news articles, video platforms, and academic publications in April 2024-May 2025, LiveVQA enables evaluation of how models handle latest visual information beyond their knowledge boundaries and how current methods help to update them. Our comprehensive benchmarking of 17 state-of-the-art MLLMs reveals significant performance gaps on content beyond knowledge cutoff, and tool-use or agentic visual seeking framework drastically gain an average of 327% improvement. Furthermore, we explore parameter-efficient fine-tuning (PEFT) methods to update MLLMs with new visual knowledge. We dive deeply to the critical balance between adapter capacity and model capability when updating MLLMs with new visual knowledge. All the experimental dataset and source code are publicly available at: this https URL.
+
+</details>
 
 #### [SimpleVQA: Multimodal Factuality Evaluation for Multimodal Large Language Models](https://arxiv.org/abs/2502.13059)
 `MAP` · 2025-02 · [PDF](https://arxiv.org/pdf/2502.13059)
@@ -328,10 +361,16 @@ Visual perception connects high-level semantic understanding to pixel-level perc
 
 <!-- The three entries below were in the original README but are not in the latest source list; kept pending confirmation. -->
 
-#### VDR-Bench
-`MMLab`
+#### [Vision-DeepResearch Benchmark: Rethinking Visual and Textual Search for Multimodal Large Language Models](https://arxiv.org/abs/2602.02185)
+`MMLab` · 2026-02 · [PDF](https://arxiv.org/pdf/2602.02185)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A 2,000-instance benchmark for Vision-DeepResearch that removes cross-text answer leakage and over-idealized image matching so questions truly require visual search; proposes a multi-round cropped-search workflow.
+
+<details><summary>Abstract</summary>
+
+Multimodal Large Language Models (MLLMs) have advanced VQA and now support Vision-DeepResearch systems that use search engines for complex visual-textual fact-finding. However, evaluating these visual and textual search abilities is still difficult, and existing benchmarks have two major limitations. First, existing benchmarks are not visual search-centric: answers that should require visual search are often leaked through cross-textual cues in the text questions or can be inferred from the prior world knowledge in current MLLMs. Second, overly idealized evaluation scenario: On the image-search side, the required information can often be obtained via near-exact matching against the full image, while the text-search side is overly direct and insufficiently challenging. To address these issues, we construct the Vision-DeepResearch benchmark (VDR-Bench) comprising 2,000 VQA instances. All questions are created via a careful, multi-stage curation pipeline and rigorous expert review, designed to assess the behavior of Vision-DeepResearch systems under realistic real-world conditions. Moreover, to address the insufficient visual retrieval capabilities of current MLLMs, we propose a simple multi-round cropped-search workflow. This strategy is shown to effectively improve model performance in realistic visual retrieval scenarios. Overall, our results provide practical guidance for the design of future multimodal deep-research systems. The code will be released in this https URL.
+
+</details>
 
 #### BC-VL (BrowseComp-VL)
 `Alibaba`
@@ -351,24 +390,51 @@ AI agents with advanced reasoning and tool use capabilities have demonstrated im
 
 ### Benchmarks: Video + Text
 
-#### Video BrowseComp
+#### [Video-Browser: Towards Agentic Open-web Video Browsing](https://arxiv.org/abs/2512.23044)
+2025-12 · [PDF](https://arxiv.org/pdf/2512.23044)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Formalizes agentic video browsing and introduces Video-BrowseComp (tasks that mandate video); Video-Browser uses Pyramidal Perception (cheap-metadata filtering, zoom only when needed) for +37.5% at 58% fewer tokens.
+
+<details><summary>Abstract</summary>
+
+The evolution of autonomous agents is redefining information seeking, transitioning from passive retrieval to proactive, open-ended web research. However, a significant modality gap remains in processing the web's most dynamic and information-dense modality: video. In this paper, we first formalize the task of Agentic Video Browsing and introduce Video-BrowseComp, a benchmark evaluating open-ended agentic browsing tasks that enforce a mandatory dependency on videos. We observe that current paradigms struggle to reconcile the scale of open-ended video exploration with the need for fine-grained visual verification. Direct visual inference (e.g., RAG) maximizes perception but incurs prohibitive context costs, while text-centric summarization optimizes efficiency but often misses critical visual details required for accurate grounding. To address this, we propose Video-Browser, a novel agent leveraging Pyramidal Perception, filtering with cheap metadata and zooming in with expensive visual perception only when necessary. Experiments demonstrate that our approach achieves a 37.5% relative improvement while reducing token consumption by 58.3% compared to Direct visual inference, establishing a foundation for verifiable open-web video research. We open-source all codes, benchmark at {this https URL} and {this https URL}.
+
+</details>
 
 ### Benchmarks: TBD
 
-#### DR³-Eval: Towards Realistic and Reproducible Deep Research Evaluation
-`HF Daily Paper`
+#### [DR³-Eval: Towards Realistic and Reproducible Deep Research Evaluation](https://arxiv.org/abs/2604.14683)
+`HF Daily Paper` · 2026-04 · [PDF](https://arxiv.org/pdf/2604.14683)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A reproducible benchmark for multimodal, multi-file deep-research report generation built from real user materials with a per-task static sandbox (supportive docs + distractors + noise) and a 5-dimension, human-aligned evaluation.
 
-#### AutoResearchBench: Benchmarking AI Agents on Complex Scientific Literature Discovery
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+Deep Research Agents (DRAs) aim to solve complex, long-horizon research tasks involving planning, retrieval, multimodal understanding, and report generation, yet their evaluation remains challenging due to dynamic web environments and ambiguous task definitions. We propose DR³-Eval, a realistic and reproducible benchmark for evaluating deep research agents on multimodal, multi-file report generation. DR³-Eval is constructed from authentic user-provided materials and paired with a per-task static research sandbox corpus that simulates open-web complexity while remaining fully verifiable, containing supportive documents, distractors, and noise. Moreover, we introduce a multi-dimensional evaluation framework measuring Information Recall, Factual Accuracy, Citation Coverage, Instruction Following, and Depth Quality, and validate its alignment with human judgments. Experiments with our developed multi-agent system DR³-Agent based on multiple state-of-the-art language models demonstrate that DR³-Eval is highly challenging and reveals critical failure modes in retrieval robustness and hallucination control. Our code and data are publicly available.
 
-#### Agent-MME
+</details>
 
-> **TL;DR.** _pending._
+#### [AutoResearchBench: Benchmarking AI Agents on Complex Scientific Literature Discovery](https://arxiv.org/abs/2604.25256)
+2026-04 · [PDF](https://arxiv.org/pdf/2604.25256)
+
+> **TL;DR.** A benchmark for autonomous scientific literature discovery with Deep Research (track down a target paper) and Wide Research (collect all qualifying papers) tasks; top LLMs reach only ~9% despite acing BrowseComp.
+
+<details><summary>Abstract</summary>
+
+Autonomous scientific research is significantly advanced thanks to the development of AI agents. One key step in this process is finding the right scientific literature, whether to explore existing knowledge for a research problem, or to acquire evidence for verifying assumptions and supporting claims. To assess AI agents' capability in driving this process, we present AutoResearchBench, a dedicated benchmark for autonomous scientific literature discovery. AutoResearchBench consists of two complementary task types: (1) Deep Research, which requires tracking down a specific target paper through a progressive, multi-step probing process, and (2) Wide Research, which requires comprehensively collecting a set of papers satisfying given conditions. Compared to previous benchmarks on agentic web browsing, AutoResearchBench is distinguished along three dimensions: it is research-oriented, calling for in-depth comprehension of scientific concepts; literature-focused, demanding fine-grained utilization of detailed information; and open-ended, involving an unknown number of qualified papers and thus requiring deliberate reasoning and search throughout. These properties make AutoResearchBench uniquely suited for evaluating autonomous research capabilities, and extraordinarily challenging. Even the most powerful LLMs, despite having largely conquered general agentic web-browsing benchmarks such as BrowseComp, achieve only 9.39% accuracy on Deep Research and 9.31% IoU on Wide Research, while many other strong baselines fall below 5%. We publicly release the dataset and evaluation pipeline to facilitate future research in this direction. We publicly release the dataset, evaluation pipeline, and code at this https URL.
+
+</details>
+
+#### [Agentic-MME: What Agentic Capability Really Brings to Multimodal Intelligence?](https://arxiv.org/abs/2604.03016)
+2026-04 · [PDF](https://arxiv.org/pdf/2604.03016)
+
+> **TL;DR.** A process-verified benchmark (418 tasks, 6 domains, 2000+ stepwise checkpoints) auditing whether multimodal agents actually invoke visual and search tools correctly and efficiently; best model Gemini3-pro 56.3%, falling to 23% at Level-3.
+
+<details><summary>Abstract</summary>
+
+Multimodal Large Language Models (MLLMs) are evolving from passive observers into active agents, solving problems through Visual Expansion (invoking visual tools) and Knowledge Expansion (open-web search). However, existing evaluations fall short: they lack flexible tool integration, test visual and search tools separately, and evaluate primarily by final answers. Consequently, they cannot verify if tools were actually invoked, applied correctly, or used efficiently. To address this, we introduce Agentic-MME, a process-verified benchmark for Multimodal Agentic Capabilities. It contains 418 real-world tasks across 6 domains and 3 difficulty levels to evaluate capability synergy, featuring over 2,000 stepwise checkpoints that average 10+ person-hours of manual annotation per task. Each task includes a unified evaluation framework supporting sandboxed code and APIs, alongside a human reference trajectory annotated with stepwise checkpoints along dual-axis: S-axis and V-axis. To enable true process-level verification, we audit fine-grained intermediate states rather than just final answers, and quantify efficiency via an overthinking metric relative to human trajectories. Experimental results show the best model, Gemini3-pro, achieves 56.3% overall accuracy, which falls significantly to 23.0% on Level-3 tasks, underscoring the difficulty of real-world multimodal agentic problem solving.
+
+</details>
 
 #### [VibeSearchBench: Benchmarking Long-horizon Proactive Search in the Wild](https://arxiv.org/abs/2605.27882)
 2026-05 · [PDF](https://arxiv.org/pdf/2605.27882)
@@ -418,9 +484,16 @@ Efficiently acquiring external knowledge and up-to-date information is essential
 
 </details>
 
-#### Dr. Tulu
+#### [DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research](https://arxiv.org/abs/2511.19399)
+2025-11 · [PDF](https://arxiv.org/pdf/2511.19399)
 
-> **TL;DR.** _pending._
+> **TL;DR.** The first fully-open model trained directly for long-form deep research, via Reinforcement Learning with Evolving Rubrics (RLER); DR Tulu-8B beats open agents by 15.6% and matches OpenAI DR at ~1000x lower cost per query.
+
+<details><summary>Abstract</summary>
+
+Deep research agents perform multi-step research to produce long-form, well-attributed answers. However, most open deep research agents are trained on easily verifiable short-form QA tasks via reinforcement learning with verifiable rewards, which does not extend to realistic long-form tasks. We address this with Reinforcement Learning with Evolving Rubrics (RLER), where rubrics are constructed and maintained to co-evolve with the policy model during training. This allows the rubrics to incorporate newly explored information from search and contrasting model responses, enabling better fact checking and more discriminative on-policy feedback. Using RLER, we develop Deep Research Tulu (DR Tulu-8B), the first fully open model that is directly trained for open-ended, long-form deep research. Across four long-form deep research benchmarks in science, healthcare, and general domains, DR Tulu substantially outperforms existing open deep research agents (by 15.6% over Tongyi DR on average) and matches or exceeds proprietary deep research agents (by 0.7% over OpenAI DR on average), while being significantly smaller and cheaper per query (1000x cheaper than OpenAI DR per query).
+
+</details>
 
 #### [OpenResearcher](https://github.com/TIGER-AI-Lab/OpenResearcher)
 [Code](https://github.com/TIGER-AI-Lab/OpenResearcher) [![Stars](https://img.shields.io/github/stars/TIGER-AI-Lab/OpenResearcher?style=social)](https://github.com/TIGER-AI-Lab/OpenResearcher)
@@ -471,10 +544,16 @@ Large reasoning models (LRMs), such as OpenAI-o1 and DeepSeek-R1, demonstrate im
 
 </details>
 
-#### DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data
-`HF Daily Paper`
+#### [DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data](https://arxiv.org/abs/2604.19859)
+2026-04 · [PDF](https://arxiv.org/pdf/2604.19859)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A 4B edge-scale deep-research agent trained on only ~10K open data (agentic SFT + IGPO-based RL with information-gain turn rewards); beats sub-9B agents and narrows the gap to 30B-class systems.
+
+<details><summary>Abstract</summary>
+
+Edge-scale deep research agents based on small language models are attractive for real-world deployment due to their advantages in cost, latency, and privacy. In this work, we study how to train a strong small deep research agent under limited open-data by improving both data quality and data utilization. We present DR-Venus, a frontier 4B deep research agent for edge-scale deployment, built entirely on open data. Our training recipe consists of two stages. In the first stage, we use agentic supervised fine-tuning (SFT) to establish basic agentic capability, combining strict data cleaning with resampling of long-horizon trajectories to improve data quality and utilization. In the second stage, we apply agentic reinforcement learning (RL) to further improve execution reliability on long-horizon deep research tasks. To make RL effective for small agents in this setting, we build on IGPO and design turn-level rewards based on information gain and format-aware regularization, thereby enhancing supervision density and turn-level credit assignment. Built entirely on roughly 10K open-data, DR-Venus-4B significantly outperforms prior agentic models under 9B parameters on multiple deep research benchmarks, while also narrowing the gap to much larger 30B-class systems. Our further analysis shows that 4B agents already possess surprisingly strong performance potential, highlighting both the deployment promise of small models and the value of test-time scaling in this setting. We release our models, code, and key recipes to support reproducible research on edge-scale deep research agents.
+
+</details>
 
 ### Methods: Multimodal
 
@@ -533,10 +612,16 @@ Deep search has become a crucial capability for frontier multimodal agents, enab
 
 </details>
 
-#### Vision-DeepResearch
-`MMLab` · Base: `Qwen3-VL` · rllm + VeRL
+#### [Vision-DeepResearch: Incentivizing DeepResearch Capability in Multimodal Large Language Models](https://arxiv.org/abs/2601.22060)
+`MMLab` · Base: `Qwen3-VL` · rllm + VeRL · 2026-01 · [PDF](https://arxiv.org/pdf/2601.22060)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A multimodal deep-research paradigm doing multi-turn, multi-entity, multi-scale visual + textual search robust to real-world noise (dozens of reasoning steps, hundreds of engine calls); cold-start + RL beats workflows on GPT-5 / Gemini-2.5-Pro / Claude-4-Sonnet.
+
+<details><summary>Abstract</summary>
+
+Multimodal large language models (MLLMs) have achieved remarkable success across a broad range of vision tasks. However, constrained by the capacity of their internal world knowledge, prior work has proposed augmenting MLLMs by "reasoning-then-tool-call" for visual and textual search engines to obtain substantial gains on tasks requiring extensive factual information. However, these approaches typically define multimodal search in a naive setting, assuming that a single full-level or entity-level image query and few text query suffices to retrieve the key evidence needed to answer the question, which is unrealistic in real-world scenarios with substantial visual noise. Moreover, they are often limited in the reasoning depth and search breadth, making it difficult to solve complex questions that require aggregating evidence from diverse visual and textual sources. Building on this, we propose Vision-DeepResearch, which proposes one new multimodal deep-research paradigm, i.e., performs multi-turn, multi-entity and multi-scale visual and textual search to robustly hit real-world search engines under heavy noise. Our Vision-DeepResearch supports dozens of reasoning steps and hundreds of engine interactions, while internalizing deep-research capabilities into the MLLM via cold-start supervision and RL training, resulting in a strong end-to-end multimodal deep-research MLLM. It substantially outperforming existing multimodal deep-research MLLMs, and workflows built on strong closed-source foundation model such as GPT-5, Gemini-2.5-pro and Claude-4-Sonnet. The code will be released in this https URL.
+
+</details>
 
 #### [WebWatcher: Breaking New Frontier of Vision-Language Deep Research Agent](https://arxiv.org/abs/2508.05748)
 `Alibaba` · `ICLR 2026` · 2025-08 · Base: `Qwen2.5-VL` · LLaMA-Factory + VeRL · [PDF](https://arxiv.org/pdf/2508.05748)
@@ -661,21 +746,35 @@ In real-world video question answering scenarios, videos often provide only loca
 
 ### Proprietary Models
 
-#### OpenAI Deep Research
+#### [OpenAI Deep Research](https://openai.com/index/introducing-deep-research/)
 
-> **TL;DR.** _Proprietary product._
+> **TL;DR.** _Proprietary product (no paper); product announcement linked._
 
-#### Google Deep Research
+#### [Gemini Deep Research (Google)](https://gemini.google/overview/deep-research/)
 
-> **TL;DR.** _Proprietary product._
+> **TL;DR.** _Proprietary product (no paper); product page linked._
 
-#### Seed 1.8
+#### [Seed1.8 Model Card: Towards Generalized Real-World Agency](https://arxiv.org/abs/2603.20633)
+2026-03 · [PDF](https://arxiv.org/pdf/2603.20633)
 
-> **TL;DR.** _Proprietary product._
+> **TL;DR.** A foundation-model card for generalized real-world agency: strong LLM + VLM with a unified agentic interface (search, code execution, GUI) and latency/cost-aware inference modes.
 
-#### Salesforce Deep Research
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _Proprietary product._
+We present Seed1.8, a foundation model aimed at generalized real-world agency: going beyond single-turn prediction to multi-turn interaction, tool use, and multi-step execution. Seed1.8 keeps strong LLM and vision-language performance while supporting a unified agentic interface-search, code generation and execution, and GUI interaction. For deployment, it offers latency- and cost-aware inference, including configurable thinking modes and optimized visual encoding for images and video. We report evaluations on standard benchmarks and application-aligned workflows spanning foundational skills, multimodal understanding, and agentic behavior. Seed1.8 is released to support further research and development on interactive, real-world use cases.
+
+</details>
+
+#### [SFR-DeepResearch: Towards Effective Reinforcement Learning for Autonomously Reasoning Single Agents](https://arxiv.org/abs/2509.06283)
+`Salesforce` · 2025-09 · [PDF](https://arxiv.org/pdf/2509.06283)
+
+> **TL;DR.** Salesforce's recipe for autonomous single-agent deep research (minimal crawling + Python tools) via continual RL on reasoning models with synthetic data; SFR-DR-20B reaches 28.7% on Humanity's Last Exam.
+
+<details><summary>Abstract</summary>
+
+Equipping large language models (LLMs) with complex, interleaved reasoning and tool-use capabilities has become a key focus in agentic AI research, especially with recent advances in reasoning-oriented (``thinking'') models. Such capabilities are key to unlocking a number of important applications. One such application is Deep Research (DR), which requires extensive search and reasoning over many sources. Our work in this paper focuses on the development of native Autonomous Single-Agent models for DR featuring minimal web crawling and Python tool integration. Unlike multi-agent systems, where agents take up pre-defined roles and are told what to do at each step in a static workflow, an autonomous single-agent determines its next action dynamically based on context, without manual directive. While prior work has proposed training recipes for base or instruction-tuned LLMs, we focus on continual reinforcement learning (RL) of reasoning-optimized models to further enhance agentic skills while preserving reasoning ability. Towards this end, we propose a simple RL recipe with entirely synthetic data, which we apply to various open-source LLMs. Our best variant SFR-DR-20B achieves up to 28.7% on Humanity's Last Exam benchmark. In addition, we conduct key analysis experiments to provide more insights into our methodologies.
+
+</details>
 
 #### Perplexity
 
@@ -764,9 +863,16 @@ Recent image generation models have shown strong capabilities in generating high
 
 </details>
 
-#### Unify-Agent: A Unified Multimodal Agent for World-Grounded Image Synthesis
+#### [Unify-Agent: A Unified Multimodal Agent for World-Grounded Image Synthesis](https://arxiv.org/abs/2603.29620)
+2026-03 · [PDF](https://arxiv.org/pdf/2603.29620)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Reframes image generation as an agentic pipeline (prompt understanding, multimodal evidence search, grounded recaptioning, synthesis) for world-grounded synthesis of long-tail concepts; introduces the FactIP benchmark.
+
+<details><summary>Abstract</summary>
+
+Unified multimodal models provide a natural and promising architecture for understanding diverse and complex real-world knowledge while generating high-quality images. However, they still rely primarily on frozen parametric knowledge, which makes them struggle with real-world image generation involving long-tail and knowledge-intensive concepts. Inspired by the broad success of agents on real-world tasks, we explore agentic modeling to address this limitation. Specifically, we present Unify-Agent, a unified multimodal agent for world-grounded image synthesis, which reframes image generation as an agentic pipeline consisting of prompt understanding, multimodal evidence searching, grounded recaptioning, and final synthesis. To train our model, we construct a tailored multimodal data pipeline and curate 143K high-quality agent trajectories for world-grounded image synthesis, enabling effective supervision over the full agentic generation process. We further introduce FactIP, a benchmark covering 12 categories of culturally significant and long-tail factual concepts that explicitly requires external knowledge grounding. Extensive experiments show that our proposed Unify-Agent substantially improves over its base unified model across diverse benchmarks and real world generation tasks, while approaching the world knowledge capabilities of the strongest closed-source models. As an early exploration of agent-based modeling for world-grounded image synthesis, our work highlights the value of tightly coupling reasoning, searching, and generation for reliable open-world agentic image synthesis.
+
+</details>
 
 ### Perception (Search-Enhanced Perception)
 
