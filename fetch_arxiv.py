@@ -242,6 +242,8 @@ def strip_tags(s):
 def clean_text(s):
     s = html.unescape(s)
     s = re.sub(r"\\([%&_#$])", r"\1", s)  # unescape LaTeX char escapes
+    s = re.sub(r"\\(?:textsc|textbf|textit|texttt|underline|emph)\{([^{}]*)\}", r"\1", s)
+    s = re.sub(r"\\[,;:]", " ", s)  # LaTeX thin spaces
     s = s.replace("\n", " ").replace("\r", " ")
     s = re.sub(r"\s+", " ", s).strip()
     return s

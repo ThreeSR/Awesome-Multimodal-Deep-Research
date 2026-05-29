@@ -259,10 +259,16 @@ The rapid advancement of Multimodal Large Language Models (MLLMs) has enabled br
 
 </details>
 
-#### MM-DR-Bench
-`OSU & Amazon`
+#### [MMDeepResearch-Bench: A Benchmark for Multimodal Deep Research Agents](https://arxiv.org/abs/2601.12346)
+`OSU & Amazon` · 2026-01 · [PDF](https://arxiv.org/pdf/2601.12346)
 
-> **TL;DR.** _pending._
+> **TL;DR.** 140 expert-crafted image-text tasks across 21 domains for multimodal citation-grounded report generation, evaluated by FLAE/TRACE/MOSAIC; multimodal integrity is the key bottleneck across 25 models.
+
+<details><summary>Abstract</summary>
+
+Deep Research Agents (DRAs) generate citation-rich reports via multi-step search and synthesis, yet existing benchmarks mainly target text-only settings or short-form multimodal QA, missing end-to-end multimodal evidence use. We introduce MMDeepResearch-Bench (MMDR-Bench), a benchmark of 140 expert-crafted tasks across 21 domains, where each task provides an image-text bundle to evaluate multimodal understanding and citation-grounded report generation. Compared to prior setups, MMDR-Bench emphasizes report-style synthesis with explicit evidence use, where models must connect visual artifacts to sourced claims and maintain consistency across narrative, citations, and visual references. We further propose a unified, interpretable evaluation pipeline: Formula-LLM Adaptive Evaluation (FLAE) for report quality, Trustworthy Retrieval-Aligned Citation Evaluation (TRACE) for citation-grounded evidence alignment, and Multimodal Support-Aligned Integrity Check (MOSAIC) for text-visual integrity, each producing fine-grained signals that support error diagnosis beyond a single overall score. Experiments across 25 state-of-the-art models reveal systematic trade-offs between generation quality, citation discipline, and multimodal grounding, highlighting that strong prose alone does not guarantee faithful evidence use and that multimodal integrity remains a key bottleneck for deep research agents.
+
+</details>
 
 #### [MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains](https://arxiv.org/abs/2603.00873)
 `ICLR 2026 Oral` · 2026-03 · [PDF](https://arxiv.org/pdf/2603.00873)
@@ -286,9 +292,10 @@ Existing benchmarks for multimodal agentic search evaluate multimodal search and
 
 </details>
 
-#### HyperEyes (IMEB Benchmark)
+#### [IMEB (from HyperEyes)](https://arxiv.org/abs/2605.07177)
+`from HyperEyes` · 2026-05 · [PDF](https://arxiv.org/pdf/2605.07177)
 
-> **TL;DR.** _Benchmark introduced by the HyperEyes method (see Models & Methods); no open-source release yet (2026-05-11)._
+> **TL;DR.** A 300-instance benchmark that jointly scores multimodal search capability and inference efficiency; introduced with the HyperEyes method (see Models & Methods).
 
 #### [From Web to Pixels: Bringing Agentic Search into Visual Perception](https://arxiv.org/abs/2605.12497)
 2026-05 · [PDF](https://arxiv.org/pdf/2605.12497)
@@ -579,10 +586,16 @@ Multimodal Retrieval Augmented Generation (mRAG) plays an important role in miti
 
 </details>
 
-#### HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents
-`IMEB Benchmark`
+#### [HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents](https://arxiv.org/abs/2605.07177)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.07177)
 
-> **TL;DR.** Parallel multimodal search agents trained with dual-grained efficiency-aware RL; no open-source release yet (2026-05-11).
+> **TL;DR.** A parallel multimodal search agent that fuses grounding and retrieval into one atomic action (search wider, not longer), trained with dual-grained efficiency-aware RL; introduces the IMEB benchmark; HyperEyes-30B beats the best open agent by 9.9% with 5.3x fewer tool rounds.
+
+<details><summary>Abstract</summary>
+
+Existing multimodal search agents process target entities sequentially, issuing one tool call per entity and accumulating redundant interaction rounds whenever a query decomposes into independent sub-retrievals. We argue that effective multimodal agents should search wider rather than longer: dispatching multiple grounded queries concurrently within a round. To this end, we present HyperEyes, a parallel multimodal search agent that fuses visual grounding and retrieval into a single atomic action, enabling concurrent search across multiple entities while treating inference efficiency as a first-class training objective. HyperEyes is trained in two stages. For cold-start supervision, we develop a Parallel-Amenable Data Synthesis Pipeline covering visual multi-entity and textual multi-constraint queries, curating efficiency-oriented trajectories via Progressive Rejection Sampling. Building on this, our central contribution, a Dual-Grained Efficiency-Aware Reinforcement Learning framework, operates at two levels. At the macro level, we propose TRACE (Tool-use Reference-Adaptive Cost Efficiency), a trajectory-level reward whose reference is monotonically tightened during training to suppress superfluous tool calls without restricting genuine multi-hop search. At the micro level, we adapt On-Policy Distillation to inject dense token-level corrective signals from an external teacher on failed rollouts, mitigating the credit-assignment deficiency of sparse outcome rewards. Since existing benchmarks evaluate accuracy as the sole metric, omitting inference cost, we introduce IMEB, a human-curated benchmark of 300 instances that jointly evaluates search capability and efficiency. Across six benchmarks, HyperEyes-30B surpasses the strongest comparable open-source agent by 9.9% in accuracy with 5.3x fewer tool-call rounds on average.
+
+</details>
 
 #### [Seg-ReSearch: Segmentation with Interleaved Reasoning and External Search](https://arxiv.org/abs/2602.04454)
 `ICML 2026` · 2026-02 · [PDF](https://arxiv.org/pdf/2602.04454)
@@ -667,9 +680,16 @@ Large language models (LLMs) are increasingly expected to go beyond simple factu
 
 </details>
 
-#### DeepSearch: Overcome the Bottleneck of Reinforcement Learning with Verifiable Rewards via Monte Carlo Tree Search
+#### [DeepSearch: Overcome the Bottleneck of Reinforcement Learning with Verifiable Rewards via Monte Carlo Tree Search](https://arxiv.org/abs/2509.25454)
+2025-09 · [PDF](https://arxiv.org/pdf/2509.25454)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Embeds Monte Carlo Tree Search directly into RLVR training (not just inference) for systematic exploration and step-level credit assignment; new SOTA math reasoning at 5.7x fewer GPU hours.
+
+<details><summary>Abstract</summary>
+
+Although RLVR has become an essential component for developing advanced reasoning skills in language models, contemporary studies have documented training plateaus after thousands of optimization steps, i.e., notable decreases in performance gains despite increased computational investment. This limitation stems from the sparse exploration patterns inherent in current RLVR practices, where models rely on limited rollouts that often miss critical reasoning paths and fail to provide systematic coverage of the solution space. We present DeepSearch, a framework that integrates Monte Carlo Tree Search (MCTS) directly into RLVR training. In contrast to existing methods that rely on tree search only at inference, DeepSearch embeds structured search into the training loop, enabling systematic exploration and fine-grained credit assignment across reasoning steps. Through training-time exploration, DeepSearch addresses the fundamental bottleneck of insufficient exploration, which leads to diminishing performance gains over prolonged training. Our contributions include: (1) a global frontier selection strategy that prioritizes promising nodes across the search tree, (2) selection with entropy-based guidance that identifies confident paths for supervision, and (3) adaptive replay buffer training with solution caching for efficiency. Experiments on mathematical reasoning benchmarks show that DeepSearch achieves an average accuracy of 62.95% and establishes a new state-of-the-art reasoning model, while using 5.7x fewer GPU hours than extended training approaches. These results highlight the importance of strategic exploration over brute-force scaling and demonstrate the promise of algorithmic innovation for advancing RLVR methodologies. DeepSearch establishes a new direction for scaling reasoning capabilities through systematic search rather than prolonged computation.
+
+</details>
 
 #### [MiroThinker](https://github.com/MiroMindAI/MiroThinker)
 [Code](https://github.com/MiroMindAI/MiroThinker) [![Stars](https://img.shields.io/github/stars/MiroMindAI/MiroThinker?style=social)](https://github.com/MiroMindAI/MiroThinker)
@@ -702,15 +722,29 @@ Long-horizon search agents must manage a rapidly growing working context as they
 
 </details>
 
-#### DLLM-Searcher: Adapting Diffusion Large Language Model for Search Agents
+#### [DLLM-Searcher: Adapting Diffusion Large Language Model for Search Agents](https://arxiv.org/abs/2602.07035)
+2026-02 · [PDF](https://arxiv.org/pdf/2602.07035)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Adapts diffusion LLMs into search agents via Agentic SFT plus Variance-Reduced Preference Optimization, with a Parallel-Reasoning-and-Acting (P-ReAct) paradigm that decodes tool calls while still thinking (~15% faster inference).
+
+<details><summary>Abstract</summary>
+
+Recently, Diffusion Large Language Models (dLLMs) have demonstrated unique efficiency advantages, enabled by their inherently parallel decoding mechanism and flexible generation paradigm. Meanwhile, despite the rapid advancement of Search Agents, their practical deployment is constrained by a fundamental limitation, termed as 1) Latency Challenge: the serial execution of multi-round reasoning, tool calling, and tool response waiting under the ReAct agent paradigm induces severe end-to-end latency. Intuitively, dLLMs can leverage their distinctive strengths to optimize the operational efficiency of agents under the ReAct agent paradigm. Practically, existing dLLM backbones face the 2) Agent Ability Challenge. That is, existing dLLMs exhibit remarkably weak reasoning and tool-calling capabilities, preventing these advantages from being effectively realized in practice. In this paper, we propose DLLM-Searcher, an optimization framework for dLLM-based Search Agents. To solve the Agent Ability Challenge, we design a two-stage post-training pipeline encompassing Agentic Supervised Fine-Tuning (Agentic SFT) and Agentic Variance-Reduced Preference Optimization Agentic VRPO, which enhances the backbone dLLM's information seeking and reasoning capabilities. To mitigate the Latency Challenge, we leverage the flexible generation mechanism of dLLMs and propose a novel agent paradigm termed Parallel-Reasoning and Acting P-ReAct. P-ReAct guides the model to prioritize decoding tool_call instructions, thereby allowing the model to keep thinking while waiting for the tool's return. Experimental results demonstrate that DLLM-Searcher achieves performance comparable to mainstream LLM-based search agents and P-ReAct delivers approximately 15% inference acceleration. Our code is available at this https URL
+
+</details>
 
 ### Generation (Search-Enhanced Generation)
 
-#### Gen-Searcher: Reinforcing Agentic Search for Image Generation
+#### [Gen-Searcher: Reinforcing Agentic Search for Image Generation](https://arxiv.org/abs/2603.28767)
+2026-03 · [PDF](https://arxiv.org/pdf/2603.28767)
 
-> **TL;DR.** _pending._
+> **TL;DR.** The first search-augmented image-generation agent: multi-hop search gathers textual knowledge and reference images for grounded generation (SFT + agentic RL with dual text/image rewards); +16 on KnowGen, which it also introduces.
+
+<details><summary>Abstract</summary>
+
+Recent image generation models have shown strong capabilities in generating high-fidelity and photorealistic images. However, they are fundamentally constrained by frozen internal knowledge, thus often failing on real-world scenarios that are knowledge-intensive or require up-to-date information. In this paper, we present Gen-Searcher, as the first attempt to train a search-augmented image generation agent, which performs multi-hop reasoning and search to collect the textual knowledge and reference images needed for grounded generation. To achieve this, we construct a tailored data pipeline and curate two high-quality datasets, Gen-Searcher-SFT-10k and Gen-Searcher-RL-6k, containing diverse search-intensive prompts and corresponding ground-truth synthesis images. We further introduce KnowGen, a comprehensive benchmark that explicitly requires search-grounded external knowledge for image generation and evaluates models from multiple dimensions. Based on these resources, we train Gen-Searcher with SFT followed by agentic reinforcement learning with dual reward feedback, which combines text-based and image-based rewards to provide more stable and informative learning signals for GRPO training. Experiments show that Gen-Searcher brings substantial gains, improving Qwen-Image by around 16 points on KnowGen and 15 points on WISE. We hope this work can serve as an open foundation for search agents in image generation, and we fully open-source our data, models, and code.
+
+</details>
 
 #### Unify-Agent: A Unified Multimodal Agent for World-Grounded Image Synthesis
 
@@ -722,13 +756,27 @@ _None yet._
 
 ### Misc
 
-#### AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking in Large Language Models
+#### [AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking in Large Language Models](https://arxiv.org/abs/2505.17312)
+2025-05 · [PDF](https://arxiv.org/pdf/2505.17312)
 
-> **TL;DR.** _pending._
+> **TL;DR.** An LLM-agnostic, RL-trained plugin that picks per-task reasoning configs (instruction format, temperature, step count); consistently beats fixed-config baselines across six LLMs.
 
-#### CityRAG: Stepping Into a City via Spatially-Grounded Video Generation
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+LLMs often need effective configurations, like temperature and reasoning steps, to handle tasks requiring sophisticated reasoning and problem-solving, ranging from joke generation to mathematical reasoning. Existing prompting approaches usually adopt general-purpose, fixed configurations that work 'well enough' across tasks but seldom achieve task-specific optimality. To address this gap, we introduce AdaReasoner, an LLM-agnostic plugin designed for any LLM to automate adaptive reasoning configurations for tasks requiring different types of thinking. AdaReasoner is trained using a reinforcement learning (RL) framework, combining a factorized action space with a targeted exploration strategy, along with a pretrained reward model to optimize the policy model for reasoning configurations with only a few-shot guide. AdaReasoner is backed by theoretical guarantees and experiments of fast convergence and a sublinear policy gap. Across six different LLMs and a variety of reasoning tasks, it consistently outperforms standard baselines, preserves out-of-distribution robustness, and yield gains on knowledge-intensive tasks through tailored prompts.
+
+</details>
+
+#### [CityRAG: Stepping Into a City via Spatially-Grounded Video Generation](https://arxiv.org/abs/2604.19741)
+2026-04 · [PDF](https://arxiv.org/pdf/2604.19741)
+
+> **TL;DR.** A spatially-grounded video generative model that uses geo-registered data as context to simulate real locations, producing minutes-long 3D-consistent navigable sequences with stable weather/lighting and loop closure.
+
+<details><summary>Abstract</summary>
+
+We address the problem of generating a 3D-consistent, navigable environment that is spatially grounded: a simulation of a real location. Existing video generative models can produce a plausible sequence that is consistent with a text (T2V) or image (I2V) prompt. However, the capability to reconstruct the real world under arbitrary weather conditions and dynamic object configurations is essential for downstream applications including autonomous driving and robotics simulation. To this end, we present CityRAG, a video generative model that leverages large corpora of geo-registered data as context to ground generation to the physical scene, while maintaining learned priors for complex motion and appearance changes. CityRAG relies on temporally unaligned training data, which teaches the model to semantically disentangle the underlying scene from its transient attributes. Our experiments demonstrate that CityRAG can generate coherent minutes-long, physically grounded video sequences, maintain weather and lighting conditions over thousands of frames, achieve loop closure, and navigate complex trajectories to reconstruct real-world geography.
+
+</details>
 
 #### PlugMem: Transforming Raw Agent Interactions into Reusable Knowledge
 
@@ -738,13 +786,27 @@ _None yet._
 
 > **TL;DR.** _pending._
 
-#### Memento: Teaching LLMs to Manage Their Own Context
+#### [MEMENTO: Teaching LLMs to Manage Their Own Context](https://arxiv.org/abs/2604.09852)
+2026-04 · [PDF](https://arxiv.org/pdf/2604.09852)
 
-> **TL;DR.** _pending._
+> **TL;DR.** Teaches reasoning models to segment thinking into blocks and compress each into a dense memento summary, attending only to mementos; ~2.5x KV-cache reduction at maintained accuracy, with the OpenMementos dataset (228K traces).
 
-#### Beyond Retrieval: A Multitask Benchmark and Model for Code Search
+<details><summary>Abstract</summary>
 
-> **TL;DR.** _pending._
+Reasoning models think in long, unstructured streams with no mechanism for compressing or organizing their own intermediate state. We introduce MEMENTO: a method that teaches models to segment reasoning into blocks, compress each block into a memento, i.e., a dense state summary, and reason forward by attending only to mementos, reducing context, KV cache, and compute. To train MEMENTO models, we release OpenMementos, a public dataset of 228K reasoning traces derived from OpenThoughts-v3, segmented and annotated with intermediate summaries. We show that a two-stage SFT recipe on OpenMementos is effective across different model families (Qwen3, Phi-4, Olmo 3) and scales (8B--32B parameters). Trained models maintain strong accuracy on math, science, and coding benchmarks while achieving ${\sim}2.5\times$ peak KV cache reduction. We extend vLLM to support our inference method, achieving ${\sim}1.75\times$ throughput improvement while also enabling us to perform RL and further improve accuracy. Finally, we identify a dual information stream: information from each reasoning block is carried both by the memento text and by the corresponding KV states, which retain implicit information from the original block. Removing this channel drops accuracy by 15 pp on AIME24.
+
+</details>
+
+#### [Beyond Retrieval: A Multitask Benchmark and Model for Code Search](https://arxiv.org/abs/2605.04615)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.04615)
+
+> **TL;DR.** CoREB, a contamination-limited multitask code-search benchmark (text-to-code, code-to-text, code-to-code) from rewritten LiveCodeBench, plus a fine-tuned reranker; short keyword queries collapse every model.
+
+<details><summary>Abstract</summary>
+
+Code search has usually been evaluated as first-stage retrieval, even though production systems rely on broader pipelines with reranking and developer-style queries. Existing benchmarks also suffer from data contamination, label noise, and degenerate binary relevance. In this paper, we introduce CoREB, a contamination-limited, multitask code retrieval and reranking benchmark, together with a fine-tuned code reranker, that goes beyond retrieval to cover the full code search pipeline. CoREB is built from counterfactually rewritten LiveCodeBench problems in five programming languages and delivered as timed releases with graded relevance judgments. We benchmark eleven embedding models and five rerankers across three tasks: text-to-code, code-to-text, and code-to-code. Our experiments reveal that: \circone code-specialised embeddings dominate code-to-code retrieval (${\sim}2{\times}$ over general encoders), yet no single model wins all three tasks; \circtwo short keyword queries, the format closest to real developer search, collapse every model to near-zero nDCG@10; \circthree off-the-shelf rerankers are task-asymmetric, with a 12-point swing on code-to-code and no baseline net-positive across all tasks; \circfour our fine-tuned CoREB-Reranker is the first to achieve consistent gains across all three tasks. The data and model are released.
+
+</details>
 
 ### Methods: TBD
 
@@ -784,9 +846,16 @@ Open-Ended Deep Research (OEDR) pushes LLM agents beyond short-form QA toward lo
 
 > **TL;DR.** _pending._
 
-#### MemEvolve: Meta-Evolution of Agent Memory Systems
+#### [MemEvolve: Meta-Evolution of Agent Memory Systems](https://arxiv.org/abs/2512.18746)
+2025-12 · [PDF](https://arxiv.org/pdf/2512.18746)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A meta-evolutionary framework that jointly evolves an agent's experience and its memory architecture; ships EvolveLab (12 memory systems in one design space) and improves SmolAgent/Flash-Searcher by up to 17%.
+
+<details><summary>Abstract</summary>
+
+Self-evolving memory systems are unprecedentedly reshaping the evolutionary paradigm of large language model (LLM)-based agents. Prior work has predominantly relied on manually engineered memory architectures to store trajectories, distill experience, and synthesize reusable tools, enabling agents to evolve on the fly within environment interactions. However, this paradigm is fundamentally constrained by the staticity of the memory system itself: while memory facilitates agent-level evolving, the underlying memory architecture cannot be meta-adapted to diverse task contexts. To address this gap, we propose MemEvolve, a meta-evolutionary framework that jointly evolves agents' experiential knowledge and their memory architecture, allowing agent systems not only to accumulate experience but also to progressively refine how they learn from it. To ground MemEvolve in prior research and foster openness in future self-evolving systems, we introduce EvolveLab, a unified self-evolving memory codebase that distills twelve representative memory systems into a modular design space (encode, store, retrieve, manage), providing both a standardized implementation substrate and a fair experimental arena. Extensive evaluations on four challenging agentic benchmarks demonstrate that MemEvolve achieves (I) substantial performance gains, improving frameworks such as SmolAgent and Flash-Searcher by up to $17.06%$; and (II) strong cross-task and cross-LLM generalization, designing memory architectures that transfer effectively across diverse benchmarks and backbone models.
+
+</details>
 
 #### Dr. Zero
 `Meta`
