@@ -381,6 +381,35 @@ def insert_entry(readme_path, section, entry_md):
         f.write(new_text)
 
 
+def replace_stub(readme_path, stub_query, entry_md):
+    """Replace an existing `#### ` stub block (matched by heading text) in place."""
+    with open(readme_path, encoding="utf-8") as f:
+        text = f.read()
+    lines = text.splitlines()
+    head_re = re.compile(r"^(#{1,6})\s+(.*?)\s*$")
+    want = normalize_title(stub_query)
+    matches = [i for i, ln in enumerate(lines)
+               if (m := head_re.match(ln)) and len(m.group(1)) == 4
+               and want in normalize_title(m.group(2))]
+    if not matches:
+        raise FetchError(f"no #### stub heading matching {stub_query!r} found")
+    if len(matches) > 1:
+        raise FetchError(
+            f"{len(matches)} stub headings match {stub_query!r}; be more specific")
+    start = matches[0]
+    end = len(lines)
+    for j in range(start + 1, len(lines)):
+        if head_re.match(lines[j]):
+            end = j
+            break
+    new_lines = lines[:start] + entry_md.split("\n") + [""] + lines[end:]
+    new_text = "\n".join(new_lines)
+    if not new_text.endswith("\n"):
+        new_text += "\n"
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write(new_text)
+
+
 def id_already_present(readme_path, arxiv_id):
     try:
         with open(readme_path, encoding="utf-8") as f:
@@ -402,6 +431,10 @@ def main():
 
     p.add_argument("--section", default="Benchmarks",
                    help="README heading to insert under (default: Benchmarks)")
+    p.add_argument("--replace", action="store_true",
+                   help="replace an existing stub (matched by --stub) in place "
+                        "instead of appending to a section")
+    p.add_argument("--stub", help="heading text of the #### stub to replace (with --replace)")
     p.add_argument("--readme", default="README.md")
     p.add_argument("--tldr", help="one-line TL;DR (recommended; else first-sentence fallback)")
     p.add_argument("--affiliation", help="affiliation (arXiv rarely provides this)")
@@ -437,6 +470,10 @@ def main():
 
         if args.dry_run:
             print(entry)
+        elif args.replace:
+            if not args.stub:
+                raise FetchError("--replace requires --stub")
+            replace_stub(args.readme, args.stub, entry)
         else:
             insert_entry(args.readme, args.section, entry)
 
