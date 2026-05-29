@@ -337,6 +337,11 @@ AI agents with advanced reasoning and tool use capabilities have demonstrated im
 
 </details>
 
+#### [BC-VL (BrowseComp-VL)](https://arxiv.org/abs/2508.05748)
+`Alibaba Tongyi Lab` · `from WebWatcher` · 2025-08 · [PDF](https://arxiv.org/pdf/2508.05748)
+
+> **TL;DR.** The BrowseComp-style vision-and-language information-retrieval benchmark introduced by WebWatcher (see Models & Methods → Multimodal); requires complex retrieval over interleaved visual and textual evidence.
+
 #### [Seeking and Updating with Live Visual Knowledge (LiveVQA)](https://arxiv.org/abs/2504.05288)
 `HUST` · `UW` · 2025-04 · [PDF](https://arxiv.org/pdf/2504.05288)
 
@@ -380,11 +385,6 @@ Benchmarks are important tools for tracking the rapid advancements in large lang
 The advent of Large Language Models (LLMs) has paved the way for AI search engines, e.g., SearchGPT, showcasing a new paradigm in human-internet interaction. However, most current AI search engines are limited to text-only settings, neglecting the multimodal user queries and the text-image interleaved nature of website information. Recently, Large Multimodal Models (LMMs) have made impressive strides. Yet, whether they can function as AI search engines remains under-explored, leaving the potential of LMMs in multimodal search an open question. To this end, we first design a delicate pipeline, MMSearch-Engine, to empower any LMMs with multimodal search capabilities. On top of this, we introduce MMSearch, a comprehensive evaluation benchmark to assess the multimodal search performance of LMMs. The curated dataset contains 300 manually collected instances spanning 14 subfields, which involves no overlap with the current LMMs' training data, ensuring the correct answer can only be obtained within searching. By using MMSearch-Engine, the LMMs are evaluated by performing three individual tasks (requery, rerank, and summarization), and one challenging end-to-end task with a complete searching process. We conduct extensive experiments on closed-source and open-source LMMs. Among all tested models, GPT-4o with MMSearch-Engine achieves the best results, which surpasses the commercial product, Perplexity Pro, in the end-to-end task, demonstrating the effectiveness of our proposed pipeline. We further present error analysis to unveil current LMMs still struggle to fully grasp the multimodal search tasks, and conduct ablation study to indicate the potential of scaling test-time computation for AI search engine. We hope MMSearch may provide unique insights to guide the future development of multimodal AI search engine. Project Page: https://mmsearch.github.io
 
 </details>
-
-#### BC-VL (BrowseComp-VL)
-`Alibaba`
-
-> **TL;DR.** _Introduced by WebWatcher (see Models & Methods); confirm whether it has a standalone paper._
 
 ### Benchmarks: Video + Text
 
@@ -677,7 +677,7 @@ Agentic multimodal models should not only comprehend text and images, but also a
 </details>
 
 #### [Tongyi DeepResearch Technical Report](https://arxiv.org/abs/2510.24701)
-`Alibaba` · 2025-10 · [PDF](https://arxiv.org/pdf/2510.24701)
+`Alibaba` · 2025-10 · [PDF](https://arxiv.org/pdf/2510.24701) · [Code](https://github.com/Alibaba-NLP/DeepResearch) [![Stars](https://img.shields.io/github/stars/Alibaba-NLP/DeepResearch?style=social)](https://github.com/Alibaba-NLP/DeepResearch) · [Model](https://huggingface.co/Alibaba-NLP/Tongyi-DeepResearch-30B-A3B)
 
 > **TL;DR.** An agentic 30.5B-A3B (3.3B active) MoE LLM for long-horizon deep research, trained via agentic mid- and post-training on fully-synthetic data; SOTA on HLE, BrowseComp/-ZH, WebWalkerQA, and xbench.
 
@@ -774,13 +774,13 @@ Equipping large language models (LLMs) with complex, interleaved reasoning and t
 
 > **TL;DR.** _Proprietary product (no paper); product page linked._
 
-#### Perplexity
+#### [Perplexity Deep Research](https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research)
 
-> **TL;DR.** _Proprietary product._
+> **TL;DR.** _Proprietary product (no paper); product announcement linked._
 
-#### Grok DeepSearch
+#### [Grok DeepSearch](https://grok.com/project/deepsearch)
 
-> **TL;DR.** _Proprietary product._
+> **TL;DR.** _Proprietary product (no paper); product page linked._
 
 ### Open Data Synthesis for Deep Research
 
@@ -792,6 +792,17 @@ Equipping large language models (LLMs) with complex, interleaved reasoning and t
 <details><summary>Abstract</summary>
 
 Long-horizon search agents must manage a rapidly growing working context as they reason, call tools, and observe information. Naively accumulating all intermediate content can overwhelm the agent, increasing costs and the risk of errors. We propose that effective context management should be adaptive: parts of the agent's trajectory are maintained at different levels of detail depending on their current relevance to the task. To operationalize this principle, we introduce Context-ReAct, a general agentic paradigm for elastic context orchestration that integrates reasoning, context management, and tool use in a unified loop. Context-ReAct provides five atomic operations: Skip, Compress, Rollback, Snippet and Delete, which allow the agent to dynamically reshape its working context, preserving important evidence, summarizing resolved information, discarding unhelpful branches, and controlling context size. We prove that the Compress operator is expressively complete, while the other specialized operators provide efficiency and fidelity guarantees that reduce generation cost and hallucination risk. Building on this paradigm, we develop LongSeeker, a long-horizon search agent fine-tuned from Qwen3-30B-A3B on 10k synthesized trajectories. Across four representative search benchmarks, LongSeeker achieves 61.5% on BrowseComp and 62.5% on BrowseComp-ZH, substantially outperforming Tongyi DeepResearch (43.2% and 46.7%) and AgentFold (36.2% and 47.3%). These results highlight the potential of adaptive context management, showing that agents can achieve more reliable and efficient long-horizon reasoning by actively shaping their working memory.
+
+</details>
+
+#### [ARIS: Autonomous Research via Adversarial Multi-Agent Collaboration](https://arxiv.org/abs/2605.03042)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.03042)
+
+> **TL;DR.** An open-source autonomous-research harness using cross-model adversarial collaboration (executor + a different-family reviewer), 65+ Markdown skills, a research wiki, and a three-stage claim-to-evidence assurance layer to catch unsupported "successes".
+
+<details><summary>Abstract</summary>
+
+This report describes ARIS (Auto-Research-in-sleep), an open-source research harness for autonomous research, including its architecture, assurance mechanisms, and early deployment experience. The performance of agent systems built on LLMs depends on both the model weights and the harness around them, which governs what information to store, retrieve, and present to the model. For long-horizon research workflows, the central failure mode is not a visible breakdown but a plausible unsupported success: a long-running agent can produce claims whose evidential support is incomplete, misreported, or silently inherited from the executor's framing. Therefore, we present ARIS as a research harness that coordinates machine-learning research workflows through cross-model adversarial collaboration as a default configuration: an executor model drives forward progress while a reviewer from a different model family is recommended to critique intermediate artifacts and request revisions. ARIS has three architectural layers. The execution layer provides more than 65 reusable Markdown-defined skills, model integrations via MCP, a persistent research wiki for iterative reuse of prior findings, and deterministic figure generation. The orchestration layer coordinates five end-to-end workflows with adjustable effort settings and configurable routing to reviewer models. The assurance layer includes a three-stage process for checking whether experimental claims are supported by evidence: integrity verification, result-to-claim mapping, and claim auditing that cross-checks manuscript statements against the claim ledger and raw evidence, as well as a five-pass scientific-editing pipeline, mathematical-proof checks, and visual inspection of the rendered PDF. A prototype self-improvement loop records research traces and proposes harness improvements that are adopted only after reviewer approval.
 
 </details>
 
@@ -841,10 +852,6 @@ Large language models (LLMs) are increasingly expected to go beyond simple factu
 
 #### [MiroThinker](https://github.com/MiroMindAI/MiroThinker)
 [Code](https://github.com/MiroMindAI/MiroThinker) [![Stars](https://img.shields.io/github/stars/MiroMindAI/MiroThinker?style=social)](https://github.com/MiroMindAI/MiroThinker)
-
-> **TL;DR.** _pending._
-
-#### ARIS: Autonomous Research via Adversarial Multi-Agent Collaboration
 
 > **TL;DR.** _pending._
 
@@ -911,6 +918,17 @@ Reasoning models think in long, unstructured streams with no mechanism for compr
 
 </details>
 
+#### [GeoVista: Web-Augmented Agentic Visual Reasoning for Geolocalization](https://arxiv.org/abs/2511.15705)
+2025-11 · [PDF](https://arxiv.org/pdf/2511.15705)
+
+> **TL;DR.** An agentic geolocalization model that interleaves an image-zoom tool and a web-search tool in its reasoning (SFT cold-start + RL with hierarchical reward); introduces GeoBench and rivals Gemini-2.5-flash and GPT-5.
+
+<details><summary>Abstract</summary>
+
+Current research on agentic visual reasoning enables deep multimodal understanding but primarily focuses on image manipulation tools, leaving a gap toward more general-purpose agentic models. In this work, we revisit the geolocalization task, which requires not only nuanced visual grounding but also web search to confirm or refine hypotheses during reasoning. Since existing geolocalization benchmarks fail to meet the need for high-resolution imagery and the localization challenge for deep agentic reasoning, we curate GeoBench, a benchmark that includes photos and panoramas from around the world, along with a subset of satellite images of different cities to rigorously evaluate the geolocalization ability of agentic models. We also propose GeoVista, an agentic model that seamlessly integrates tool invocation within the reasoning loop, including an image-zoom-in tool to magnify regions of interest and a web-search tool to retrieve related web information. We develop a complete training pipeline for it, including a cold-start supervised fine-tuning (SFT) stage to learn reasoning patterns and tool-use priors, followed by a reinforcement learning (RL) stage to further enhance reasoning ability. We adopt a hierarchical reward to leverage multi-level geographical information and improve overall geolocalization performance. Experimental results show that GeoVista surpasses other open-source agentic models on the geolocalization task greatly and achieves performance comparable to closed-source models such as Gemini-2.5-flash and GPT-5 on most metrics.
+
+</details>
+
 #### [AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking in Large Language Models](https://arxiv.org/abs/2505.17312)
 2025-05 · [PDF](https://arxiv.org/pdf/2505.17312)
 
@@ -922,15 +940,18 @@ LLMs often need effective configurations, like temperature and reasoning steps, 
 
 </details>
 
-#### PlugMem: Transforming Raw Agent Interactions into Reusable Knowledge
-
-> **TL;DR.** _pending._
-
-#### GeoVista: Web-Augmented Agentic Visual Reasoning for Geolocalization
-
-> **TL;DR.** _pending._
-
 ### Methods: TBD
+
+#### [OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories](https://arxiv.org/abs/2605.04036)
+2026-05 · [PDF](https://arxiv.org/pdf/2605.04036)
+
+> **TL;DR.** An academic-team search agent showing that SFT on just 10.6k informative, high-difficulty trajectories (larger knowledge graphs, more tools, low-step filtering) beats the heavy CPT+SFT+RL recipe; a 30B model tops BrowseComp/-ZH/HLE/xbench, surpassing Tongyi DeepResearch.
+
+<details><summary>Abstract</summary>
+
+Deep search capabilities have become an indispensable competency for frontier Large Language Model (LLM) agents, yet their development remains dominated by industrial giants. The typical industry recipe involves a highly resource-intensive pipeline spanning pre-training, continual pre-training (CPT), supervised fine-tuning (SFT), and reinforcement learning (RL). In this report, we show that when fueled with informative and high-difficulty trajectories, a simple SFT approach could be surprisingly powerful for training frontier search agents. By introducing three simple data synthesis modifications: scaling knowledge graph size for richer exploration, expanding the tool set size for broader functionality, and strict low-step filtering, we establish a stronger baseline. Trained on merely 10.6k data points, our OpenSeeker-v2 achieves state-of-the-art performance across 4 benchmarks (30B-sized agents with ReAct paradigm): 46.0% on BrowseComp, 58.1% on BrowseComp-ZH, 34.6% on Humanity's Last Exam, and 78.0% on xbench, surpassing even Tongyi DeepResearch trained with heavy CPT+SFT+RL pipeline, which achieves 43.4%, 46.7%, 32.9%, and 75.0%, respectively. Notably, OpenSeeker-v2 represents the first state-of-the-art search agent within its model scale and paradigm to be developed by a purely academic team using only SFT. We are excited to open-source the OpenSeeker-v2 model weights and share our simple yet effective findings to make frontier search agent research more accessible to the community.
+
+</details>
 
 #### [A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research](https://arxiv.org/abs/2602.13830)
 2026-02 · [PDF](https://arxiv.org/pdf/2602.13830)
@@ -1019,10 +1040,6 @@ AI research agents offer the promise to accelerate scientific progress by automa
 > **TL;DR.** _pending._
 
 #### OpenSeeker
-
-> **TL;DR.** _pending._
-
-#### OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories
 
 > **TL;DR.** _pending._
 
