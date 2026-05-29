@@ -338,7 +338,7 @@ AI agents with advanced reasoning and tool use capabilities have demonstrated im
 </details>
 
 #### [BC-VL (BrowseComp-VL)](https://arxiv.org/abs/2508.05748)
-`Alibaba Tongyi Lab` · `from WebWatcher` · 2025-08 · [PDF](https://arxiv.org/pdf/2508.05748)
+`Alibaba Tongyi Lab` · `ICLR 2026` · `from WebWatcher` · 2025-08 · [PDF](https://arxiv.org/pdf/2508.05748)
 
 > **TL;DR.** The BrowseComp-style vision-and-language information-retrieval benchmark introduced by WebWatcher (see Models & Methods → Multimodal); requires complex retrieval over interleaved visual and textual evidence.
 
