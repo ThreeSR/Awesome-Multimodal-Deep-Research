@@ -80,9 +80,27 @@ We propose Encyclopedic-VQA, a large scale visual question answering (VQA) datas
 
 </details>
 
-#### OK-VQA & A-OKVQA
+#### [OK-VQA: A Visual Question Answering Benchmark Requiring External Knowledge](https://arxiv.org/abs/1906.00067)
+2019-05 · [PDF](https://arxiv.org/pdf/1906.00067)
 
-> **TL;DR.** _pending._
+> **TL;DR.** A knowledge-based VQA benchmark of 14K+ questions whose answers require external knowledge beyond the image; SOTA VQA models degrade sharply.
+
+<details><summary>Abstract</summary>
+
+Visual Question Answering (VQA) in its ideal form lets us study reasoning in the joint space of vision and language and serves as a proxy for the AI task of scene understanding. However, most VQA benchmarks to date are focused on questions such as simple counting, visual attributes, and object detection that do not require reasoning or knowledge beyond what is in the image. In this paper, we address the task of knowledge-based visual question answering and provide a benchmark, called OK-VQA, where the image content is not sufficient to answer the questions, encouraging methods that rely on external knowledge resources. Our new dataset includes more than 14,000 questions that require external knowledge to answer. We show that the performance of the state-of-the-art VQA models degrades drastically in this new setting. Our analysis shows that our knowledge-based VQA task is diverse, difficult, and large compared to previous knowledge-based VQA datasets. We hope that this dataset enables researchers to open up new avenues for research in this domain. See this http URL to download and browse the dataset.
+
+</details>
+
+#### [A-OKVQA: A Benchmark for Visual Question Answering using World Knowledge](https://arxiv.org/abs/2206.01718)
+2022-06 · [PDF](https://arxiv.org/pdf/2206.01718)
+
+> **TL;DR.** A crowdsourced ~25K-question VQA benchmark requiring commonsense and world knowledge that can't be answered by a simple knowledge-base lookup, but instead need reasoning about the scene.
+
+<details><summary>Abstract</summary>
+
+The Visual Question Answering (VQA) task aspires to provide a meaningful testbed for the development of AI models that can jointly reason over visual and natural language inputs. Despite a proliferation of VQA datasets, this goal is hindered by a set of common limitations. These include a reliance on relatively simplistic questions that are repetitive in both concepts and linguistic structure, little world knowledge needed outside of the paired image, and limited reasoning required to arrive at the correct answer. We introduce A-OKVQA, a crowdsourced dataset composed of a diverse set of about 25K questions requiring a broad base of commonsense and world knowledge to answer. In contrast to the existing knowledge-based VQA datasets, the questions generally cannot be answered by simply querying a knowledge base, and instead require some form of commonsense reasoning about the scene depicted in the image. We demonstrate the potential of this new dataset through a detailed analysis of its contents and baseline performance measurements over a variety of state-of-the-art vision-language models. Project page: this http URL
+
+</details>
 
 #### FVQA
 `ACL 2026` · `from MM-Search-R1`
