@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Reorder the paper entries in README.md by date, most-recent first.
+"""Reorder the paper entries in README.md by arXiv id, most-recent first.
 
 Each entry is a `#### ...` block; sections are delimited by `#`/`##`/`###`
-headings. Within every section the `####` entries are sorted by the YYYY-MM
-date on their meta line (descending). Entries without a date (proprietary
-products, pointers, pending stubs) sort to the bottom, keeping their relative
-order. Content inside fenced code blocks (e.g. the template in How to
-Contribute) is ignored so its example `####` is never touched.
+headings. Within every section the `####` entries are sorted by their arXiv id
+YYMM.NNNNN (descending), which orders by submission time even within the same
+month. Entries with no arXiv id (proprietary products, pending stubs) sort to
+the bottom, keeping their relative order. Content inside fenced code blocks
+(e.g. the template in How to Contribute) is ignored so its example `####` is
+never touched.
 
 Usage: python3 scripts/claude_code/sort_entries_by_date.py [README.md]
 """
@@ -20,7 +21,10 @@ with open(PATH, encoding="utf-8") as f:
 
 fence_re = re.compile(r"^\s*`{3,}")
 head_re = re.compile(r"^(#{1,6})\s+(.*)$")
-date_re = re.compile(r"\b(\d{4})-(\d{2})\b")
+# Sort by arXiv id: YYMM.NNNNN encodes the submission time (year-month + an
+# in-month sequence number), so it orders entries more precisely than the
+# coarser YYYY-MM meta date, including within the same month.
+id_re = re.compile(r"arxiv\.org/(?:abs|pdf)/(\d{4})\.(\d{4,5})")
 
 # Mark which lines sit inside a fenced code block (toggle on each ``` line).
 in_fence = False
@@ -40,10 +44,10 @@ def heading_level(i):
     return len(m.group(1)) if m else None
 
 
-def date_key(block):
-    """(year, month) of the first YYYY-MM in the block; (0, 0) if undated."""
+def id_key(block):
+    """(yymm, number) of the first arXiv id in the block; (0, 0) if none."""
     for ln in block:
-        m = date_re.search(ln)
+        m = id_re.search(ln)
         if m:
             return (int(m.group(1)), int(m.group(2)))
     return (0, 0)
@@ -62,7 +66,7 @@ while i < n:
                 j += 1
             entries.append(lines[i:j])
             i = j
-        for block in sorted(entries, key=date_key, reverse=True):
+        for block in sorted(entries, key=id_key, reverse=True):
             while block and block[-1].strip() == "":
                 block.pop()
             out.extend(block)
