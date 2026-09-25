@@ -147,10 +147,11 @@ def _title_score(want, cand):
 def fetch_meta_api(arxiv_id):
     url = f"{API_URL}?id_list={arxiv_id}&max_results=1"
     status, body = _get(url)
-    if status == 429:
-        return None  # caller falls back to HTML
     if status != 200:
-        raise FetchError(f"arXiv API returned HTTP {status} for id {arxiv_id}")
+        # 429 = throttled; other codes (e.g. 406) have also been observed from
+        # the Atom API. The HTML abstract page is an independent pool, so fall
+        # back for any non-200 rather than dying here.
+        return None  # caller falls back to HTML
 
     root = ET.fromstring(body)
     entry = root.find("atom:entry", NS)
@@ -212,11 +213,18 @@ def fetch_meta_html(arxiv_id):
         # e.g. "5 Aug 2025" -> 2025-08
         date = parse_loose_date(date_m.group(1))
 
+    authors = []
+    auth_m = re.search(r'<div class="authors"[^>]*>(.*?)</div>', html, re.S)
+    if auth_m:
+        inner = re.sub(r'<span[^>]*>Authors:?\s*</span>', '', auth_m.group(1))
+        authors = [clean_text(n) for n in re.findall(r'<a[^>]*>([^<]+)</a>', inner)]
+        authors = [a for a in authors if a]
+
     return {
         "id": arxiv_id,
         "title": clean_text(title),
         "abstract": clean_text(abstract),
-        "authors": [],
+        "authors": authors,
         "affiliations": [],
         "date": date,
         "journal_ref": "",

@@ -57,7 +57,7 @@ python3 fetch_arxiv.py --title "MMSearch: Benchmarking ..." --section "(Multi-)I
 
 ## Contents
 
-- [Data and Benchmark](#data-and-benchmark) — Training Data; Benchmarks (Text / (Multi-)Image + Text / Video + Text)
+- [Data and Benchmark](#data-and-benchmark) — Training Data; Benchmarks (Text / (Multi-)Image + Text / Video + Text / Knowledge-Intensive Image Generation)
 - [Models & Methods](#models--methods) — Text; Multimodal; Proprietary Models; Open Data Synthesis; Generation; Perception; Misc
 - [Survey](#survey)
 
@@ -386,6 +386,28 @@ The advent of Large Language Models (LLMs) has paved the way for AI search engin
 
 </details>
 
+#### [WorldVQA: Measuring Atomic World Knowledge in Multimodal Large Language Models](https://arxiv.org/abs/2602.02537)
+`Moonshot AI` · `arXiv 2602` · 2026-01 · [PDF](https://arxiv.org/pdf/2602.02537)
+
+> **TL;DR.** 3,500 atomic visual-knowledge VQA pairs that decouple memorized world knowledge from reasoning to measure MLLM factuality and hallucination.
+
+<details><summary>Abstract</summary>
+
+We introduce WorldVQA, a benchmark designed to evaluate the atomic visual world knowledge of Multimodal Large Language Models (MLLMs). Unlike current evaluations, which often conflate visual knowledge retrieval with reasoning, WorldVQA decouples these capabilities to strictly measure "what the model memorizes." The benchmark assesses the atomic capability of grounding and naming visual entities across a stratified taxonomy, spanning from common head-class objects to long-tail rarities. We expect WorldVQA to serve as a rigorous test for visual factuality, thereby establishing a standard for assessing the encyclopedic breadth and hallucination rates of current and next-generation frontier models.
+
+</details>
+
+#### [TVIR: Building Deep Research Agents Towards Text-Visual Interleaved Report Generation](https://arxiv.org/abs/2606.02320)
+`NJU` · `arXiv 2606` · 2026-06 · [PDF](https://arxiv.org/pdf/2606.02320)
+
+> **TL;DR.** TVIR-Bench: 100 expert-curated tasks for text-visual interleaved report generation with dual textual + visual assessment; TVIR-Agent as baseline.
+
+<details><summary>Abstract</summary>
+
+Deep Research Agents have shown strong capability in multi-step information retrieval, reasoning, and long-form report generation, but existing benchmarks and systems remain predominantly text-centric, with limited evaluation of whether visual elements are factually reliable and well aligned with the surrounding analysis. To address this gap, we introduce TVIR (Text-Visual Interleaved Report Generation), which includes TVIR-Bench, a benchmark of 100 expert-curated multimodal deep research tasks that require visual elements to serve specific analytical sub-goals, and TVIR-Agent, a hierarchical multi-agent framework that serves as a strong baseline for constructing outlines, retrieving images, generating charts with traceable sources, and composing reports through context-aware sequential writing. We further develop a dual-path evaluation framework that combines Textual Assessment and Visual Assessment. Experiments across nine deep research systems show that TVIR-Agent achieves strong overall performance, underscoring the importance of explicit multimodal design and evaluation for evidence-driven report generation.
+
+</details>
+
 ### Benchmarks: Video + Text
 
 #### [Video-Browser: Towards Agentic Open-web Video Browsing](https://arxiv.org/abs/2512.23044)
@@ -396,6 +418,41 @@ The advent of Large Language Models (LLMs) has paved the way for AI search engin
 <details><summary>Abstract</summary>
 
 The evolution of autonomous agents is redefining information seeking, transitioning from passive retrieval to proactive, open-ended web research. However, a significant modality gap remains in processing the web's most dynamic and information-dense modality: video. In this paper, we first formalize the task of Agentic Video Browsing and introduce Video-BrowseComp, a benchmark evaluating open-ended agentic browsing tasks that enforce a mandatory dependency on videos. We observe that current paradigms struggle to reconcile the scale of open-ended video exploration with the need for fine-grained visual verification. Direct visual inference (e.g., RAG) maximizes perception but incurs prohibitive context costs, while text-centric summarization optimizes efficiency but often misses critical visual details required for accurate grounding. To address this, we propose Video-Browser, a novel agent leveraging Pyramidal Perception, filtering with cheap metadata and zooming in with expensive visual perception only when necessary. Experiments demonstrate that our approach achieves a 37.5% relative improvement while reducing token consumption by 58.3% compared to Direct visual inference, establishing a foundation for verifiable open-web video research. We open-source all codes, benchmark at {this https URL} and {this https URL}.
+
+</details>
+
+### Benchmarks: Knowledge-Intensive Image Generation
+
+#### [T2I-FactualBench: Benchmarking the Factuality of Text-to-Image Models with Knowledge-Intensive Concepts](https://arxiv.org/abs/2412.04300)
+`ZJU` · `ACL 2025` · 2024-12 · [PDF](https://arxiv.org/pdf/2412.04300)
+
+> **TL;DR.** 1,704 knowledge-intensive concept prompts scoring T2I factuality with a multi-round VQA judge.
+
+<details><summary>Abstract</summary>
+
+Evaluating the quality of synthesized images remains a significant challenge in the development of text-to-image (T2I) generation. Most existing studies in this area primarily focus on evaluating text-image alignment, image quality, and object composition capabilities, with comparatively fewer studies addressing the evaluation of the factuality of T2I models, particularly when the concepts involved are knowledge-intensive. To mitigate this gap, we present T2I-FactualBench in this work - the largest benchmark to date in terms of the number of concepts and prompts specifically designed to evaluate the factuality of knowledge-intensive concept generation. T2I-FactualBench consists of a three-tiered knowledge-intensive text-to-image generation framework, ranging from the basic memorization of individual knowledge concepts to the more complex composition of multiple knowledge concepts. We further introduce a multi-round visual question answering (VQA) based evaluation framework to assess the factuality of three-tiered knowledge-intensive text-to-image generation tasks. Experiments on T2I-FactualBench indicate that current state-of-the-art (SOTA) T2I models still leave significant room for improvement.
+
+</details>
+
+#### [WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation](https://arxiv.org/abs/2503.07265)
+`PKU` · `ICML 2026` · 2025-03 · [PDF](https://arxiv.org/pdf/2503.07265) · [Code](https://github.com/PKU-YuanGroup/WISE) [![Stars](https://img.shields.io/github/stars/PKU-YuanGroup/WISE?style=social)](https://github.com/PKU-YuanGroup/WISE)
+
+> **TL;DR.** 1,000 world-knowledge prompts across culture, spatio-temporal reasoning, and science, scored by WiScore beyond shallow text-image alignment.
+
+<details><summary>Abstract</summary>
+
+Text-to-Image (T2I) models are capable of generating high-quality artistic creations and visual content. However, existing research and evaluation standards predominantly focus on image realism and shallow text-image alignment, lacking a comprehensive assessment of complex semantic understanding and world knowledge integration in text-to-image generation. To address this challenge, we propose WISE, the first benchmark specifically designed for World Knowledge-Informed Semantic Evaluation. WISE moves beyond simple word-pixel mapping by challenging models with 1000 meticulously crafted prompts across 25 subdomains in cultural common sense, spatio-temporal reasoning, and natural science. To overcome the limitations of traditional CLIP metric, we introduce WiScore, a novel quantitative metric for assessing knowledge-image alignment. Through comprehensive testing of 20 models (10 dedicated T2I models and 10 unified multimodal models) using 1,000 structured prompts spanning 25 subdomains, our findings reveal significant limitations in their ability to effectively integrate and apply world knowledge during image generation, highlighting critical pathways for enhancing knowledge incorporation and application in next-generation T2I models. Code and data are available at \href{this https URL}{PKU-YuanGroup/WISE}.
+
+</details>
+
+#### [WorldGenBench: A World-Knowledge-Integrated Benchmark for Reasoning-Driven Text-to-Image Generation](https://arxiv.org/abs/2505.01490)
+`arXiv 2505` · 2025-05 · [PDF](https://arxiv.org/pdf/2505.01490)
+
+> **TL;DR.** Evaluates world-knowledge grounding and implicit reasoning of T2I models with a structured Knowledge Checklist Score.
+
+<details><summary>Abstract</summary>
+
+Recent advances in text-to-image (T2I) generation have achieved impressive results, yet existing models still struggle with prompts that require rich world knowledge and implicit reasoning: both of which are critical for producing semantically accurate, coherent, and contextually appropriate images in real-world scenarios. To address this gap, we introduce WorldGenBench, a benchmark designed to systematically evaluate T2I models' world knowledge grounding and implicit inferential capabilities, covering both the humanities and nature domains. We propose the Knowledge Checklist Score, a structured metric that measures how well generated images satisfy key semantic expectations. Experiments across 21 state-of-the-art models reveal that while diffusion models lead among open-source methods, proprietary auto-regressive models like GPT-4o exhibit significantly stronger reasoning and knowledge integration. Our findings highlight the need for deeper understanding and inference capabilities in next-generation T2I systems. Project Page: \href{this https URL}{this https URL}
 
 </details>
 
@@ -742,6 +799,160 @@ Multimodal Retrieval Augmented Generation (mRAG) plays an important role in miti
 
 </details>
 
+#### [Visual Agentic Reinforcement Fine-Tuning](https://arxiv.org/abs/2505.14246)
+`Shanghai AI Lab` · `arXiv 2505` · 2025-05 · Base: `Qwen2.5-VL` · [PDF](https://arxiv.org/pdf/2505.14246) · [Code](https://github.com/Liuziyu77/Visual-RFT) [![Stars](https://img.shields.io/github/stars/Liuziyu77/Visual-RFT?style=social)](https://github.com/Liuziyu77/Visual-RFT)
+
+> **TL;DR.** Agentic RL fine-tuning that teaches LVLMs to browse the web and write image-processing code, plus the MAT bench (MAT-Search / MAT-Coding).
+
+<details><summary>Abstract</summary>
+
+A key trend in Large Reasoning Models (e.g., OpenAI's o3) is the native agentic ability to use external tools such as web browsers for searching and writing/executing code for image manipulation to think with images. In the open-source research community, while significant progress has been made in language-only agentic abilities such as function calling and tool integration, the development of multi-modal agentic capabilities that involve truly thinking with images, and their corresponding benchmarks, are still less explored. This work highlights the effectiveness of Visual Agentic Reinforcement Fine-Tuning (Visual-ARFT) for enabling flexible and adaptive reasoning abilities for Large Vision-Language Models (LVLMs). With Visual-ARFT, open-source LVLMs gain the ability to browse websites for real-time information updates and write code to manipulate and analyze input images through cropping, rotation, and other image processing techniques. We also present a Multi-modal Agentic Tool Bench (MAT) with two settings (MAT-Search and MAT-Coding) designed to evaluate LVLMs' agentic search and coding abilities. Our experimental results demonstrate that Visual-ARFT outperforms its baseline by +18.6% F1 / +13.0% EM on MAT-Coding and +10.3% F1 / +8.7% EM on MAT-Search, ultimately surpassing GPT-4o. Visual-ARFT also achieves +29.3 F1% / +25.9% EM gains on existing multi-hop QA benchmarks such as 2Wiki and HotpotQA, demonstrating strong generalization capabilities. Our findings suggest that Visual-ARFT offers a promising path toward building robust and generalizable multimodal agents.
+
+</details>
+
+#### [SenseNova-MARS: Empowering Multimodal Agentic Reasoning and Search via Reinforcement Learning](https://arxiv.org/abs/2512.24330)
+`SenseTime` · `CVPR 2026` · 2025-12 · Base: `Qwen3-VL` · [PDF](https://arxiv.org/pdf/2512.24330) · [Code](https://github.com/OpenSenseNova/SenseNova-MARS) [![Stars](https://img.shields.io/github/stars/OpenSenseNova/SenseNova-MARS?style=social)](https://github.com/OpenSenseNova/SenseNova-MARS)
+
+> **TL;DR.** Interleaves visual reasoning with search and crop tools via BN-GSPO RL, and ships the high-resolution HR-MMSearch benchmark.
+
+<details><summary>Abstract</summary>
+
+While Vision-Language Models (VLMs) can solve complex tasks through agentic reasoning, their capabilities remain largely constrained to text-oriented chain-of-thought or isolated tool invocation. They fail to exhibit the human-like proficiency required to seamlessly interleave dynamic tool manipulation with continuous reasoning, particularly in knowledge-intensive and visually complex scenarios that demand coordinated external tools such as search and image cropping. In this work, we introduce SenseNova-MARS, a novel Multimodal Agentic Reasoning and Search framework that empowers VLMs with interleaved visual reasoning and tool-use capabilities via reinforcement learning (RL). Specifically, SenseNova-MARS dynamically integrates the image search, text search, and image crop tools to tackle fine-grained and knowledge-intensive visual understanding challenges. In the RL stage, we propose the Batch-Normalized Group Sequence Policy Optimization (BN-GSPO) algorithm to improve the training stability and advance the model's ability to invoke tools and reason effectively. To comprehensively evaluate the agentic VLMs on complex visual tasks, we introduce the HR-MMSearch benchmark, the first search-oriented benchmark composed of high-resolution images with knowledge-intensive and search-driven questions. Experiments demonstrate that SenseNova-MARS achieves state-of-the-art performance on open-source search and fine-grained image understanding benchmarks. Specifically, on search-oriented benchmarks, SenseNova-MARS-32B scores 74.3 on MMSearch and 54.4 on HR-MMSearch, surpassing proprietary models such as Gemini-3-Pro and GPT-5.2. SenseNova-MARS represents a promising step toward agentic VLMs by providing effective and robust tool-use capabilities. To facilitate further research in this field, we will release all code, models, and datasets.
+
+</details>
+
+#### [VSearcher: Long-Horizon Multimodal Search Agent via Reinforcement Learning](https://arxiv.org/abs/2603.02795)
+`IDEA` · `arXiv 2603` · 2026-03 · Base: `Qwen3-VL-8B` · [PDF](https://arxiv.org/pdf/2603.02795) · [Code](https://github.com/Ruiyang-061X/VSearcher) [![Stars](https://img.shields.io/github/stars/Ruiyang-061X/VSearcher?style=social)](https://github.com/Ruiyang-061X/VSearcher)
+
+> **TL;DR.** Long-horizon multimodal search agent trained with SFT-then-RL on iteratively injected synthetic multimodal QA.
+
+<details><summary>Abstract</summary>
+
+Large models are increasingly becoming autonomous agents that interact with real-world environments and use external tools to augment their static capabilities. However, most recent progress has focused on text-only large language models, which are limited to a single modality and therefore have narrower application scenarios. On the other hand, multimodal large models, while offering stronger perceptual capabilities, remain limited to static knowledge and lack the ability to access and leverage up-to-date web information. In this paper, we propose VSearcher, turning static multimodal model into multimodal search agent capable of long-horizon, multi-turn tool use in real-world web environments, including text search, image search, and web browsing, via reinforcement learning. Specifically, we introduce Iterative Injection Data Synthesis pipeline to generate large-scale, complex multimodal QA questions, which are further filtered with comprehensive metrics to ensure high quality and sufficient difficulty. We then adopt an SFT-then-RL training pipeline to turn base multimodal models to agent capable of multi-turn tool calling in real-world web environments. Besides, we propose a multimodal search benchmark MM-SearchExam dedicated to evaluating search capabilities of multimodal search agents, which proves highly challenging for recent proprietary models. Extensive evaluations across multiple multimodal search benchmarks reveal effectiveness of our method. VSearcher achieves superior performance compared to recent multimodal search agents and even surpasses several proprietary models on multimodal web search tasks.
+
+</details>
+
+#### [MTA-Agent: An Open Recipe for Multimodal Deep Search Agents](https://arxiv.org/abs/2604.06376)
+`Salesforce` · `arXiv 2604` · 2026-04 · [PDF](https://arxiv.org/pdf/2604.06376) · [Code](https://github.com/SalesforceAIResearch/MTA-Agent) [![Stars](https://img.shields.io/github/stars/SalesforceAIResearch/MTA-Agent?style=social)](https://github.com/SalesforceAIResearch/MTA-Agent)
+
+> **TL;DR.** Tool-augmented synthesis agent that builds the verified 21K MTA-Vision-DeepSearch corpus (and MTA-Test) for training multimodal deep-search agents.
+
+<details><summary>Abstract</summary>
+
+Multimodal large language models (MLLMs) have demonstrated strong capabilities in visual understanding, yet they remain limited in complex, multi-step reasoning that requires deep searching and integrating visual evidence with external knowledge. In this work, we address this challenge by constructing high-quality, verified multi-hop vision-language training data for multimodal deep-search agents. We propose a Multi-hop Tool-Augmented Agent for Evidence-based QA Synthesis (MTA-Agent), which automatically selects tools and their parameters to retrieve and validate evidence from both visual and textual sources and generates structured multi-hop question-answer trajectories. Starting from diverse VQA seed datasets, our pipeline produces a large-scale training dataset, MTA-Vision-DeepSearch, containing 21K high-quality multi-hop examples. The data is filtered through a multi-stage verification process to ensure factual consistency and answer uniqueness. Using MTA-Vision-DeepSearch, a 32B open-source multimodal search agent achieves state-of-the-art performance, reaching an average of 54.63% across six challenging benchmarks, outperforming GPT-5 (51.86%), Gemini-2.5-Pro (50.98%), and Gemini-3-Pro (54.46%) under the same tool settings. We further show that training on our data improves both reasoning depth and tool-use behavior, increasing the average number of steps from 2.27 to 4.28, and leading to more systematic and persistent search strategies. Additionally, we demonstrate that training can be performed without real-time tool calls by replaying cached interactions, significantly reducing training cost. Importantly, we present MTA-Agent as a fully open recipe for multimodal deep search: we release the entire dataset, training trajectories, and implementation details to enable reproducibility and future research on open multimodal search agents.
+
+</details>
+
+#### [POINTS-Seeker: An Open Recipe for Multimodal Search Agents with Visual Memory Management](https://arxiv.org/abs/2604.14029)
+`SJTU` · `arXiv 2604` · 2026-04 · Base: `Qwen3-VL-8B` · [PDF](https://arxiv.org/pdf/2604.14029)
+
+> **TL;DR.** Open recipe with Agentic Seeding cold-start and V-Fold memory that folds stale context into the visual space to fight context explosion.
+
+<details><summary>Abstract</summary>
+
+Large Multimodal Models (LMMs) excel at visual perception but struggle with real-time, knowledge-intensive queries due to their reliance on static parametric knowledge. While multimodal search agents offer a promising solution, developing them from vanilla LMMs presents two major challenges: the lack of open recipes to cultivate search agency from scratch, and the severe context explosion (attention dilution) that occurs during long-horizon multi-turn investigations. In this paper, we address both challenges by developing a native multimodal search agent. First, we introduce an open training recipe featuring Agentic Seeding, a formative training stage that bootstraps tool-use and planning abilities directly from a non-agentic foundation. Second, to overcome the context bottleneck, we propose V-Fold, an adaptive memory management mechanism. V-Fold retains recent interactions as high-fidelity text while folding stale historical context into the visual space via rendering, exploiting the model's cross-modal alignment to preserve raw evidence without text token redundancy. Combining these innovations, we present POINTS-Seeker-8B, which achieves state-of-the-art performance among models of comparable scale across six multimodal search benchmarks.
+
+</details>
+
+#### [Towards On-Policy Data Evolution for Visual-Native Multimodal Deep Search Agents](https://arxiv.org/abs/2605.10832)
+`HKUST` · `arXiv 2605` · 2026-05 · Base: `Qwen3-VL` · [PDF](https://arxiv.org/pdf/2605.10832) · [Code](https://github.com/JoeYing1019/ODE) [![Stars](https://img.shields.io/github/stars/JoeYing1019/ODE?style=social)](https://github.com/JoeYing1019/ODE)
+
+> **TL;DR.** Visual-native harness with an image-bank reference protocol plus on-policy data evolution that regenerates training data from the current policy's failures.
+
+<details><summary>Abstract</summary>
+
+Multimodal deep search requires an agent to solve open-world problems by chaining search, tool use, and visual reasoning over evolving textual and visual context. Two bottlenecks limit current systems. First, existing tool-use harnesses treat images returned by search, browsing, or transformation as transient outputs, so intermediate visual evidence cannot be re-consumed by later tools. Second, training data is usually built by fixed curation recipes that cannot track the target agent's evolving capability. To address these challenges, we first introduce a visual-native agent harness centered on an image bank reference protocol, which registers every tool-returned image as an addressable reference and makes intermediate visual evidence reusable by later tools. On top of this harness, On-policy Data Evolution (ODE) runs a closed-loop data generator that refines itself across rounds from rollouts of the policy being trained. This per-round refinement makes each round's data target what the current policy still needs to learn. The same framework supports both diverse supervised fine-tuning data and policy-aware reinforcement learning data curation, covering the full training lifecycle of the target agent. Across 8 multimodal deep search benchmarks, ODE improves the Qwen3-VL-8B agent from 24.9% to 39.0% on average, surpassing Gemini-2.5 Pro in standard agent-workflow setting (37.9%). At 30B, ODE raises the average score from 30.6% to 41.5%. Further analyses validate the effectiveness of image-bank reuse, especially on complex tasks requiring iterative visual refinement, while rollout-feedback evolution yields more grounded SFT traces and better policy-matched RL tasks than static synthesis.
+
+</details>
+
+#### [Visual-Seeker: Towards Visual-Native Multimodal Agentic Search via Active Visual Reasoning](https://arxiv.org/abs/2606.15231)
+`Ant Group` · `arXiv 2606` · 2026-06 · Base: `Qwen3-VL-8B` · [PDF](https://arxiv.org/pdf/2606.15231)
+
+> **TL;DR.** Visual-native deep-search agent that actively harvests fine-grained visual evidence, trained on 5K synthesized active-visual-reasoning trajectories.
+
+<details><summary>Abstract</summary>
+
+Multimodal large language models (MLLMs) have demonstrated impressive capabilities in many visual tasks, but they often struggle with factual grounding when confronted with complex, open-world scenarios. While recent multimodal deep search agents attempt to address this issue by utilizing external tools, the visual-native search paradigm remains underexplored. Existing methods primarily rely on simple images with explicit semantics and text-only evidence trajectories, limiting the agent's ability to perform multi-hop, cross-modal reasoning and search. To address these limitations, we propose Visual-Seeker, a visual-native multimodal deep search agent via active visual reasoning. Rather than treating vision as a static input, our agent actively attends to fine-grained visual details, dynamically harvests visual evidence throughout the search process. To unlock its visual-native potential, we design an active visual reasoning data pipeline and synthesize 5K high-quality multimodal trajectories for model training. Extensive experiments demonstrate the state-of-the-art performance across five challenging multimodal search benchmarks, even surpassing several proprietary models, validating robust visual-native reasoning and search in real-world web environments. The code and data can be accessed at: this https URL.
+
+</details>
+
+#### [TAPO: Tool-Aware Policy Optimization via Credit Transfer for Multimodal Search Agents](https://arxiv.org/abs/2606.05784)
+`USTC` · `arXiv 2606` · 2026-06 · Base: `Qwen3-VL` · [PDF](https://arxiv.org/pdf/2606.05784)
+
+> **TL;DR.** Fixes GRPO credit misassignment for tool calls via counterfactual witnesses and confidence-gated advantage correction.
+
+<details><summary>Abstract</summary>
+
+We identify and formally characterize credit misassignment as a systematic failure mode of GRPO in tool-augmented multimodal search agents: its uniform broadcast of trajectory-level advantages to all tokens causes valuable tool-use steps in failing trajectories to be penalized no differently from valueless ones. We further empirically quantify the scale of this phenomenon. Over half of failing trajectories and failing tool-use actions exhibit correctable credit misassignment, demonstrating that the wasted training signal is both substantial and structurally exploitable. Building on this insight, we propose Tool-Aware Policy Optimization (TAPO), which exploits the parameter-determinism property of information-acquisition tools: similar call parameters define equivalent information-acquisition actions and should therefore share comparable action credit. TAPO constructs counterfactual witnesses within the current training batch and compensates misassigned negative credit via confidence-gated conservative advantage correction. It requires no additional annotation, models, or sampling, and introduces negligible computational overhead. Across multiple multimodal search benchmarks, TAPO delivers consistent, plug-and-play improvements over strong baselines for three mainstream RL algorithms (GRPO, GSPO, and SAPO). Our code and models will be publicly released upon acceptance.
+
+</details>
+
+#### [SimpleSearch-VL: A Simple Recipe for Multimodal Agentic Deep Search](https://arxiv.org/abs/2606.31504)
+`Ant Group` · `arXiv 2606` · 2026-06 · Base: `Qwen3-VL-8B/30B-A3B` · [PDF](https://arxiv.org/pdf/2606.31504) · [Code](https://github.com/AQ-MedAI/SimpleSearch-VL) [![Stars](https://img.shields.io/github/stars/AQ-MedAI/SimpleSearch-VL?style=social)](https://github.com/AQ-MedAI/SimpleSearch-VL)
+
+> **TL;DR.** Simple recipe (5K SFT + 2K RL) with factorized adaptive rollout and evidence-verified reasoning; no extra tools or auxiliary models.
+
+<details><summary>Abstract</summary>
+
+We present SimpleSearch-VL, an efficient, reliable, and practical framework for multimodal agentic search. Its core idea is to improve the agent's own search-and-verification process rather than scaling data, tools, or auxiliary model components. For efficiency, Factorized Adaptive Rollout (FAR) improves sampling efficiency by forming more informative training groups while using redundant samples to mitigate long-tail latency and expose hard samples. For reliability, SimpleSearch-VL performs evidence-verified reasoning, explicitly using chain-of-thought verification to assess the relevance of retrieved visual and textual cues to the original context. For practicality, SimpleSearch-VL keeps a lightweight tool interface and performs webpage self-summary within the agent, requiring no additional external dependencies. With only 5K supervised tool-interleaved trajectories and 2K RL data, SimpleSearch-VL improves Qwen3-VL agentic baselines by 15.8 and 16.0 average points for the 8B and 30B-A3B variants, respectively. The SimpleSearch-VL-30B-A3B model further achieves performance competitive with agentic Gemini-3-Pro.
+
+</details>
+
+#### [SearchEyes: Towards Frontier Multimodal Deep Search Intelligence via Search World Simulation](https://arxiv.org/abs/2607.05943)
+`CUHK` · `arXiv 2607` · 2026-07 · Base: `Qwen3.5-VL-9B/27B` · [PDF](https://arxiv.org/pdf/2607.05943) · [Code](https://github.com/Frostlinx/SearchEyes) [![Stars](https://img.shields.io/github/stars/Frostlinx/SearchEyes?style=social)](https://github.com/Frostlinx/SearchEyes)
+
+> **TL;DR.** Simulates a reproducible search world over a typed knowledge graph and anchors step-level RL credit on hop metadata (HaPO); ships VisSearch-Bench.
+
+<details><summary>Abstract</summary>
+
+Training multimodal search agents to perform multi-hop reasoning remains challenging due to a fundamental structural disconnect: existing pipelines construct training data, search environments, and reward signals independently, causing synthesized structural metadata to be discarded, environments to rely on irreproducible external engines, and RL rewards to remain sparse at the trajectory level. We present SearchEyes, which uses a typed knowledge graph as the backbone of a simulated search world that unifies all three components. We propose Perception-Knowledge Chains (PKC) to sample constrained multi-hop paths over the visual-knowledge intersection of Wikidata5M, retaining hop-level entity metadata that simultaneously defines a self-contained search world and step-level reward anchors. We further propose Hop-Anchored Policy Optimization (HaPO), which reuses these anchors for step-level credit assignment without a separately trained process reward model. Experiments on six multimodal knowledge-intensive benchmarks show that SearchEyes achieves state-of-the-art performance among open-source multimodal search agents, with SearchEyes-27B improving over the strongest open-source baseline by 6.2 points on average.%
+
+</details>
+
+#### [DeepVoyager-VL: Incentivizing Vision-in-the-Loop Search for Long-Horizon Multimodal Agents](https://arxiv.org/abs/2608.01827)
+`PKU` · `arXiv 2608` · 2026-08 · Base: `Qwen3-VL-8B/30B` · [PDF](https://arxiv.org/pdf/2608.01827) · [Code](https://github.com/Halcyon-Zhang/DeepVoyager-VL) [![Stars](https://img.shields.io/github/stars/Halcyon-Zhang/DeepVoyager-VL?style=social)](https://github.com/Halcyon-Zhang/DeepVoyager-VL)
+
+> **TL;DR.** Vision-in-the-loop long-horizon search: a multimodal event graph drives data synthesis so intermediate visual evidence keeps driving retrieval.
+
+<details><summary>Abstract</summary>
+
+Multimodal large language models (MLLMs) have advanced visual understanding and reasoning, yet their static parametric knowledge limits their ability to address knowledge-intensive and dynamically evolving open-world problems. To move beyond this limitation, multimodal deep search has emerged as a key direction for open-world information access, evolving from single-turn factual retrieval toward long-horizon, multi-turn search guided by visual evidence. However, existing methods typically confine vision to the input or answer stage, overlooking its role in intermediate reasoning, and lack designs tailored to long-horizon interaction. Consequently, visual evidence rarely drives continued retrieval, constraining both interaction depth and reasoning span. To address these limitations, we propose DeepVoyager-VL, a long-horizon multimodal deep-search framework for vision-in-the-loop search. Specifically, we construct a multimodal event graph to drive data synthesis, yielding problems with intermediate visual dependencies and long reasoning chains. We then design an agent framework for active visual acquisition and on-demand image loading. Finally, we fine-tune models on the synthesized data without reinforcement learning. Extensive experiments across ten multimodal search benchmarks demonstrate the effectiveness of our method.
+
+</details>
+
+#### [Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent](https://arxiv.org/abs/2608.03979)
+`USTC` · `arXiv 2608` · 2026-08 · Base: `Qwen3-VL-30B / 35B-A3B` · [PDF](https://arxiv.org/pdf/2608.03979) · [Code](https://github.com/Osilly/Vision-DeepResearch) [![Stars](https://img.shields.io/github/stars/Osilly/Vision-DeepResearch?style=social)](https://github.com/Osilly/Vision-DeepResearch)
+
+> **TL;DR.** Extends deep research to video with a decoupled perception-exploration pipeline and stage-wise tool unlocking; ships Video-DR-Bench.
+
+<details><summary>Abstract</summary>
+
+We introduce Video-DeepResearch (Video-DR), extending multimodal agents from static images to continuous video streams, a setting that demands dense spatiotemporal grounding coupled with open-web exploration. Preliminary evaluations reveal two critical bottlenecks in current models: (1) modality bias, where agents bypass visual tools in favor of textual search, and (2) parametric knowledge leakage, where models rely on internal memory rather than genuine tool-augmented execution. To address these challenges, we propose Video-DR, featuring a decoupled perception-exploration pipeline with stage-wise tool unlocking that compels exhaustive cross-frame visual grounding prior to web retrieval. Our framework adopts a two-stage training recipe: supervised fine-tuning followed by Group Relative Policy Optimization (GRPO), enabling autonomous exploration that breaks the imitation-learning ceiling. Furthermore, we curate Video-DR-Bench, a human-AI collaborative benchmark comprising 200 complex, multi-hop VQA instances. Empirical results demonstrate that our Video-DeepResearch-35B-A3B establishes a new state-of-the-art of 64.0% average accuracy, surpassing proprietary Claude-4.5-Sonnet (59.0%) by 5.0 points and significantly outperforming GPT-5 (52.5%) and Gemini 2.5 Pro (57.5%). The 30B-A3B variant achieves 59.3%, competitive with Claude-4.5-Sonnet and demonstrating the effectiveness of our training paradigm even at compact scale. Code: this https URL.
+
+</details>
+
+#### [WeAgent-MMSearch: Native Text-Vision Interaction for Multimodal Search Agents](https://arxiv.org/abs/2608.28062)
+`WeChat` · `arXiv 2608` · 2026-08 · Base: `Qwen3-VL-30B` · [PDF](https://arxiv.org/pdf/2608.28062)
+
+> **TL;DR.** WeAgent-Harness gives retrieved images persistent disk references for native text-vision interaction, with runtime recovery for long-horizon rollouts.
+
+<details><summary>Abstract</summary>
+
+Multimodal search agents extend parametric knowledge with newly emerging and long-tail evidence from the open web. Yet many existing agentic search environments often expose retrieved evidence only as text and omit tool-returned images from subsequent context, reducing visually grounded trajectories to text-only reasoning. Long-horizon interaction also compounds tool-call, response-length, timeout, and budget failures, which can discard salvageable trajectories, waste rollout computation, and disturb policy updates. To address these issues, we introduce WeAgent-Harness, a multimodal agentic harness that supports native text-vision interaction and runtime recovery. Retrieved images receive persistent disk references, allowing the model to inspect, process, and cite them throughout the trajectory. Based on this harness, we develop WeAgent-MMSearch, an integrated system spanning data construction, agentic post-training, and multimodal rollout. For data construction, a strong MLLM uses WeAgent-Harness to discover, synthesize, and verify MMSearch-style tasks and collect expert trajectories. During post-training, our Failure-Aware GSPO (FA-GSPO) recovers salvageable abnormal rollouts and filters invalid ones to improve bounded multimodal planning and search. We also introduce VisTarget-Bench, a 150-task human-verified benchmark that pairs each question with a held-out target image, distinguishing image-retrieval failures from visual-perception failures. Evaluation on VisTarget-Bench and seven public benchmarks shows that agentic post-training improves the average score by 19.22 points, enabling our model to outperform similarly sized open-source models and rival models with roughly ten times its parameter count.
+
+</details>
+
+#### [OmniGAIA: Towards Native Omni-Modal AI Agents](https://arxiv.org/abs/2602.22897)
+`RUC` · `arXiv 2602` · 2026-02 · Base: `Qwen3.5-Omni` · [PDF](https://arxiv.org/pdf/2602.22897) · [Code](https://github.com/RUC-NLPIR/OmniGAIA) [![Stars](https://img.shields.io/github/stars/RUC-NLPIR/OmniGAIA?style=social)](https://github.com/RUC-NLPIR/OmniGAIA)
+
+> **TL;DR.** Omni-modal agent benchmark (video / audio / image, 360 tasks) plus OmniAtlas, a native omni-modal agent trained with hindsight-guided trees and OmniDPO.
+
+<details><summary>Abstract</summary>
+
+Human intelligence naturally intertwines omni-modal perception -- spanning vision, audio, and language -- with complex reasoning and tool usage to interact with the world. However, current multi-modal LLMs are primarily confined to bi-modal interactions (e.g., vision-language), lacking the unified cognitive capabilities required for general AI assistants. To bridge this gap, we introduce OmniGAIA, a comprehensive benchmark designed to evaluate omni-modal agents on tasks necessitating deep reasoning and multi-turn tool execution across video, audio, and image modalities. Constructed via a novel omni-modal event graph approach, OmniGAIA synthesizes complex, multi-hop queries derived from real-world data that require cross-modal reasoning and external tool integration. Furthermore, we propose OmniAtlas, a native omni-modal foundation agent under tool-integrated reasoning paradigm with active omni-modal perception. Trained on trajectories synthesized via a hindsight-guided tree exploration strategy and OmniDPO for fine-grained error correction, OmniAtlas effectively enhances the tool-use capabilities of existing open-source models. This work marks a step towards next-generation native omni-modal AI assistants for real-world scenarios.
+
+</details>
+
 ### Proprietary Models
 
 #### [Seed1.8 Model Card: Towards Generalized Real-World Agency](https://arxiv.org/abs/2603.20633)
@@ -879,6 +1090,72 @@ Recent image generation models have shown strong capabilities in generating high
 
 </details>
 
+#### [Qwen-Image-Agent: Bridging the Context Gap in Real-World Image Generation](https://arxiv.org/abs/2606.26907)
+`Qwen` · `arXiv 2606` · 2026-06 · Base: `Qwen-Image 2.0` · [PDF](https://arxiv.org/pdf/2606.26907)
+
+> **TL;DR.** Training-free agentic framework that closes the context gap in real-world T2I via context-aware planning, search, memory, and feedback; ships IA-Bench.
+
+<details><summary>Abstract</summary>
+
+While text-to-image (T2I) models have achieved remarkable progress, they struggle with real-world requests that are often underspecified, implicit, or dependent on up-to-date knowledge. We identify this challenge as the Context Gap: the mismatch between the user context and the sufficient generation context for T2I models. To bridge this gap, we propose Qwen-Image-Agent, a unified agentic framework that integrates plan, reason, search, memory and feedback in a context-centric manner. Qwen-Image-Agent treats user input as partial context and progressively constructs the generation context through Context-Aware Planning and Context Grounding. Specifically, Context-Aware Planning identifies missing context and plans how it should be acquired and used, while Context Grounding gathers this context from reason, search, memory, and feedback. To evaluate agentic image generation, we further introduce Image Agent Bench (IA-Bench), a benchmark covering four core image agent capabilities: Plan, Reason, Search, and Memory. Experiments on IA-Bench, Mindbench and WISE-Verified show that Qwen-Image-Agent outperforms strong baselines and achieves state-of-the-art performance.
+
+</details>
+
+#### [Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation](https://arxiv.org/abs/2607.05382)
+`University of Waterloo` · `arXiv 2607` · 2026-07 · Base: `Qwen-Image / Bagel-7B` · [PDF](https://arxiv.org/pdf/2607.05382) · [Code](https://github.com/HaozheH3/SearchGen) [![Stars](https://img.shields.io/github/stars/HaozheH3/SearchGen?style=social)](https://github.com/HaozheH3/SearchGen)
+
+> **TL;DR.** Models a generator-specific knowledge boundary to decide when search should aid image generation; ships SearchGen-20K, a 1M offline corpus, and SearchGen-Bench.
+
+<details><summary>Abstract</summary>
+
+Visual generators excel at rendering, but they confidently fabricate what they do not know. User requests are unbounded, evolving, and deeply long-tailed: new characters, trending entities, post-cutoff events, and more. This world-knowledge bottleneck is structural: generators are trained on fixed corpora, but the visual world is open-ended. We construct SearchGen-20K and SearchGen-Bench, with 20,839 prompts spanning twelve failure categories and twenty-two domains, paired with a pre-executed multimodal SearchGen-Corpus-1M to support offline, reproducible research. On SearchGen-Bench, frontier open generators score only 21 to 28 out of 100, a 40-point collapse invisible to existing benchmarks. The natural remedy is to employ search tools, enabling agentic visual generation. However, we find that naive search fails: it retrieves indiscriminately, injecting noise into prompts the generator already handles. We trace the root cause to a generator-specific, evolving knowledge boundary: the divide between what a generator can internalize through training and what must remain in external context. Although this boundary is hard to specify in advance, we show that it is discoverable through a teach-then-search co-training framework. Even a minimal version of this co-training recipe produces monotonic improvement, laying the foundation for recursive self-improvement in visual generation that can meet world-knowledge-grounded requests. We release the full dataset, co-training corpus, and search corpus as a replayable harness for tool-augmented, world-knowledge-grounded visual generation.
+
+</details>
+
+#### [JarvisHub: An Open Harness for Canvas-Native Multimodal Creative Agents](https://arxiv.org/abs/2607.23588)
+`CUHK` · `arXiv 2607` · 2026-07 · [PDF](https://arxiv.org/pdf/2607.23588)
+
+> **TL;DR.** Canvas-native open harness for long-horizon creative agents that keeps drafts, edits, tool actions, and feedback as an evolving project state.
+
+<details><summary>Abstract</summary>
+
+Creative AI is moving from single-step asset generation toward long-horizon multimodal production. Although recent generative models can synthesize high-quality images, videos, audio clips, UI elements, storyboards, slides, and other creative assets, real-world creative work requires more than isolated prompt-output interactions. It involves references, drafts, alternatives, edits, failed attempts, version relations, tool actions, evaluation signals, and human feedback, which together form an evolving project state. Existing prompt-based, chat-based, and node-based generation systems only partially support this state, as they often discard intermediate context, rely on linear conversations, or require manually specified workflows. Recent commercial systems indicate a shift toward agent-assisted creative production, but their closed architectures make it difficult to study how agents represent context, choose tools, revise artifacts, recover from failures, and maintain consistency over time. To address this gap, we introduce JarvisHub, a canvas-native creative agent harness for long-horizon multimodal creation. JarvisHub treats an editable canvas as the user workspace, the agent's external memory, action space, and shared project state, representing multimodal artifacts, dependencies, versions, and feedback as typed canvas nodes and links. Through a three-layer architecture of canvas state, protocol bridge, and agent runtime, JarvisHub enables agents to act within an inspectable and editable creative state. This design moves creative agents beyond isolated tool use toward sustained, human-steerable creative automation, where agents can progressively plan, generate, revise, and organize multimodal projects while users remain able to inspect, guide, and intervene throughout the process.
+
+</details>
+
+#### [ToolArtist: Tool-Using Unified Multimodal Models for Agentic Image Generation](https://arxiv.org/abs/2608.04436)
+`RUC` · `arXiv 2608` · 2026-08 · Base: `Emu3.5` · [PDF](https://arxiv.org/pdf/2608.04436) · [Code](https://github.com/bubble65/EMU-Agentic-PostTrain) [![Stars](https://img.shields.io/github/stars/bubble65/EMU-Agentic-PostTrain?style=social)](https://github.com/bubble65/EMU-Agentic-PostTrain)
+
+> **TL;DR.** Post-trains a unified multimodal model so one policy coordinates reasoning, tool use, and native image generation.
+
+<details><summary>Abstract</summary>
+
+Text-to-image (T2I) models can produce visually compelling images, yet they remain limited on open-world tasks that require complex semantic understanding, multi-step reasoning, and the integration of external world knowledge. Existing efforts introduce agent capabilities into image generation, but they either prescribe a fixed workflow or place only a subset of the open-world image generation process under agent control. Consequently, reasoning, tool invocation, and image generation are not coordinated by a single policy. We propose ToolArtist, a fully agentic image generation model obtained by post-training a Unified Multimodal Model (UMM). ToolArtist dynamically orchestrates reasoning, external tool use, and native image generation within one unified policy. During Supervised Fine-Tuning (SFT), we equip a teacher agent with search tools alongside an image-generation tool. We then convert the collected trajectories into a UMM compatible format, where the image-generation tool is concealed while the resulting generated images are retained. During Reinforcement Learning (RL), we develop an agentic RL infrastructure for UMMs and introduce Reason-Act-Draw GRPO (RAD-GRPO), which uses complementary intent and quality rewards to jointly optimize the model. Experiments show that placing the entire open-world image-generation process under an agent policy consistently outperforms approaches with fixed pipelines or only partially agent-controlled components. We release the training data and the complete post-training infrastructure.
+
+</details>
+
+#### [GenRouter: Unified Workflow Routing for Agentic Image Generation](https://arxiv.org/abs/2608.16721)
+`HKUST` · `arXiv 2608` · 2026-08 · [PDF](https://arxiv.org/pdf/2608.16721) · [Code](https://github.com/EnVision-Research/GenRouter) [![Stars](https://img.shields.io/github/stars/EnVision-Research/GenRouter?style=social)](https://github.com/EnVision-Research/GenRouter)
+
+> **TL;DR.** Routes each prompt to the cheapest sufficient agentic image-generation workflow via demand profiling, experience matching, and Pareto filtering.
+
+<details><summary>Abstract</summary>
+
+The rapid evolution of text-to-image (T2I) generation models has effectively solved the foundational challenge of raw pixel synthesis, shifting the community's focus toward fulfilling increasingly intricate user requests. While recent agentic image generation workflows enhance static inference with advanced capabilities like external knowledge retrieval and iterative reasoning, they mostly operate in isolated silos with fixed ``one-size-fits-all" topologies. This inevitably leads to severe compute-mismatch, where simple queries are forced through computationally heavy pipelines. To bridge this gap, we present GenRouter, the first unified workflow routing framework for agentic image generation. We first formulate GenCanvas, standardizing diverse agentic pipelines into a universal set of foundational primitives and executable templates. Operating over this unified space, GenRouter adaptively routes heterogeneous prompts to their optimal workflows via (i) demand profiling, (ii) experience matching, and (iii) Pareto filtering. Extensive experiments across diverse benchmarks demonstrate that GenRouter achieves superior visual alignment while reducing execution costs by over 95% and latency by 65% compared to heavyweight static pipelines. Furthermore, the system continuously self-evolves via accumulated experience, enabling robust zero-shot generalization that boosts performance and halves computational overhead.
+
+</details>
+
+#### [WeAgent-MMGenEdit: A Full-Stack Recipe for Multimodal Agentic Image Generation and Editing](https://arxiv.org/abs/2609.05171)
+`WeChat` · `arXiv 2609` · 2026-09 · [PDF](https://arxiv.org/pdf/2609.05171)
+
+> **TL;DR.** Full-stack recipe (harness, data pipeline, benchmark, post-training) for knowledge-grounded agentic image generation and editing.
+
+<details><summary>Abstract</summary>
+
+Image generation and editing models have advanced rapidly, yet remain unreliable when prompts require external world knowledge. Bounded and long-tail parametric knowledge prevents direct or reason-then-generate approaches from recovering the required facts and visual appearances. Existing agentic generation and editing methods mitigate this limitation with retrieval tools, yet remain constrained by insufficient visual verification, overloaded policy models, and weak integration of retrieved textual and visual evidence. To address these limitations, we present WeAgent-MMGenEdit, a full-stack recipe including a multimodal harness, a scalable data construction pipeline, a comprehensive benchmark, and post-training methods for the agent policy and image backend. We first introduce WeAgent-Harness, a multimodal runtime with persistent evidence management and dedicated verification and integration tools that organize retrieved multimodal evidence into a dense carrier. Upon this, we develop a scalable pipeline for prompt synthesis and agentic trajectory collection, yielding 23K supervised trajectories and 14.7K RL tasks with three-layer verifiable checklists. We further introduce WeBench-MMGenEdit, a bilingual benchmark covering both knowledge-intensive image generation and multi-image editing. Finally, a two-sided post-training recipe based on SFT and RL improves the agent policy and image backend. Together, WeAgent-MMGenEdit enables a 30B-total/3B-active policy to outperform similarly sized policy models and approach the performance of a 1T-parameter agent.
+
+</details>
+
 ### Perception (Search-Enhanced Perception)
 
 _None yet._
@@ -1001,9 +1278,16 @@ AI research agents offer the promise to accelerate scientific progress by automa
 
 > **TL;DR.** _pending._
 
-#### Skywork-R1V4: Toward Agentic Multimodal Intelligence through Interleaved Thinking with Images and DeepResearch
+#### [Skywork-R1V4: Toward Agentic Multimodal Intelligence through Interleaved Thinking with Images and DeepResearch](https://arxiv.org/abs/2512.02395)
+`Skywork AI` · `arXiv 2512` · 2025-12 · Base: `30B-A3B` · [PDF](https://arxiv.org/pdf/2512.02395)
 
-> **TL;DR.** _Closed-source._
+> **TL;DR.** SFT-only (<30K planning-consistent trajectories) agentic model unifying image manipulation and deep multimodal search with interleaved reasoning.
+
+<details><summary>Abstract</summary>
+
+Despite recent progress in multimodal agentic systems, existing approaches often treat image manipulation and web search as disjoint capabilities, rely heavily on costly reinforcement learning, and lack planning grounded in real tool-execution traces. To address these limitations, we present Skywork-R1V4, a 30B (A3B) parameter multimodal agentic model that unifies multimodal planning, active image manipulation ("thinking with images"), deep multimodal search, and, most critically, interleaved reasoning that dynamically alternates between visual operations and external knowledge retrieval. Trained solely via supervised fine-tuning on fewer than 30,000 high-quality, planning-execution-consistent trajectories and validated through stepwise consistency filtering, Skywork-R1V4 achieves state-of-the-art results across perception and multimodal search benchmarks: it scores 66.1 on MMSearch and 67.2 on FVQA, surpassing Gemini 2.5 Flash on all 11 metrics. Skywork-R1V4 exhibits emergent long-horizon reasoning at inference time, successfully orchestrating more than 10 tool calls to solve complex, multi-step tasks. Our results demonstrate that sophisticated agentic multimodal intelligence can be achieved through carefully curated supervised learning alone, without any reliance on reinforcement learning.
+
+</details>
 
 #### W&D: Scaling Parallel Tool Calling for Efficient Deep Research Agents
 
